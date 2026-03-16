@@ -1,0 +1,242 @@
+{
+  "female-tech-business-formal": {
+    "top": "Structured white shirt with a navy blazer",
+    "bottom": "Slim ankle trousers",
+    "shoes": "Black leather loafers",
+    "accessories": "Simple watch and stud earrings",
+    "style": "Business Formal",
+    "explanation": "Tech interviews still reward a polished look. This outfit projects confidence without feeling rigid."
+  },
+  "female-tech-business-casual": {
+    "top": "Silk blouse with a soft blazer",
+    "bottom": "Tailored black trousers",
+    "shoes": "Leather loafers",
+    "accessories": "Minimal jewelry",
+    "style": "Business Casual",
+    "explanation": "A smart-casual formula that keeps you professional but approachable for modern tech teams."
+  },
+  "female-tech-casual": {
+    "top": "Clean knit top",
+    "bottom": "Dark straight jeans",
+    "shoes": "Sleek sneakers",
+    "accessories": "Small hoop earrings",
+    "style": "Casual",
+    "explanation": "For startup-style interviews, neat denim and elevated basics can look focused and current."
+  },
+  "female-finance-business-formal": {
+    "top": "Crisp blouse with charcoal blazer",
+    "bottom": "Matching suit trousers",
+    "shoes": "Closed-toe pumps",
+    "accessories": "Classic watch",
+    "style": "Business Formal",
+    "explanation": "Finance environments typically expect a formal, conservative silhouette that signals precision."
+  },
+  "female-finance-business-casual": {
+    "top": "High-neck blouse",
+    "bottom": "Pencil skirt or tailored trousers",
+    "shoes": "Low block heels",
+    "accessories": "Pearl studs",
+    "style": "Business Casual",
+    "explanation": "This keeps structure and polish while softening the look for less formal office culture."
+  },
+  "female-finance-casual": {
+    "top": "Fine knit sweater",
+    "bottom": "Tailored ankle pants",
+    "shoes": "Leather flats",
+    "accessories": "Slim belt",
+    "style": "Casual",
+    "explanation": "Even casual finance interviews should lean polished; this avoids looking underdressed."
+  },
+  "female-marketing-business-formal": {
+    "top": "Statement blouse with fitted blazer",
+    "bottom": "Wide-leg tailored pants",
+    "shoes": "Pointed flats",
+    "accessories": "Subtle necklace",
+    "style": "Business Formal",
+    "explanation": "Marketing allows personality, but formal interviews still require clean professional lines."
+  },
+  "female-marketing-business-casual": {
+    "top": "Neutral blouse",
+    "bottom": "Cropped tailored trousers",
+    "shoes": "Loafers",
+    "accessories": "Minimal layered necklace",
+    "style": "Business Casual",
+    "explanation": "Balanced styling shows creativity and business readiness at the same time."
+  },
+  "female-marketing-casual": {
+    "top": "Solid color blouse",
+    "bottom": "Dark jeans",
+    "shoes": "Clean leather sneakers",
+    "accessories": "Simple bracelet",
+    "style": "Casual",
+    "explanation": "A polished casual look fits many agency and growth teams that value practical style."
+  },
+  "female-startup-business-formal": {
+    "top": "Soft blazer over monochrome top",
+    "bottom": "Straight-leg trousers",
+    "shoes": "Loafers",
+    "accessories": "Minimal watch",
+    "style": "Business Formal",
+    "explanation": "This gives authority for leadership or client-facing startup roles."
+  },
+  "female-startup-business-casual": {
+    "top": "Button-down shirt",
+    "bottom": "Dark chinos",
+    "shoes": "Leather mules",
+    "accessories": "Simple studs",
+    "style": "Business Casual",
+    "explanation": "A clean and adaptable look that feels intentional without being stiff."
+  },
+  "female-startup-casual": {
+    "top": "Fine-gauge knit",
+    "bottom": "Dark jeans",
+    "shoes": "Minimal sneakers",
+    "accessories": "None or very light jewelry",
+    "style": "Casual",
+    "explanation": "Comfortable and sharp, ideal when startup dress code is relaxed."
+  },
+  "female-general-business-formal": {
+    "top": "White blouse with navy blazer",
+    "bottom": "Tailored black trousers",
+    "shoes": "Leather loafers",
+    "accessories": "Small earrings",
+    "style": "Business Formal",
+    "explanation": "A safe and universally accepted outfit for most interview settings."
+  },
+  "female-general-business-casual": {
+    "top": "Light blouse",
+    "bottom": "Tailored slacks",
+    "shoes": "Closed-toe flats",
+    "accessories": "Simple necklace",
+    "style": "Business Casual",
+    "explanation": "Business casual is the default option when dress code is unclear."
+  },
+  "female-general-casual": {
+    "top": "Knit top",
+    "bottom": "Dark non-ripped jeans",
+    "shoes": "Loafers",
+    "accessories": "Minimal jewelry",
+    "style": "Casual",
+    "explanation": "Keeps things simple while still looking interview-ready."
+  },
+  "male-tech-business-formal": {
+    "top": "Light blue dress shirt with navy blazer",
+    "bottom": "Charcoal dress pants",
+    "shoes": "Brown leather oxfords",
+    "accessories": "Simple watch",
+    "style": "Business Formal",
+    "explanation": "Formal tech interviews benefit from a clean, modern tailoring approach."
+  },
+  "male-tech-business-casual": {
+    "top": "Oxford shirt",
+    "bottom": "Slim chinos",
+    "shoes": "Leather loafers",
+    "accessories": "Minimal belt",
+    "style": "Business Casual",
+    "explanation": "This is a reliable middle ground for software and product roles."
+  },
+  "male-tech-casual": {
+    "top": "Polo or clean crew-neck",
+    "bottom": "Dark jeans",
+    "shoes": "Minimal sneakers",
+    "accessories": "None",
+    "style": "Casual",
+    "explanation": "For startup tech interviews, tidy basics can communicate fit with team culture."
+  },
+  "male-finance-business-formal": {
+    "top": "White dress shirt with dark suit jacket",
+    "bottom": "Matching suit trousers",
+    "shoes": "Black leather derby shoes",
+    "accessories": "Conservative tie",
+    "style": "Business Formal",
+    "explanation": "Suit-and-tie remains the expected standard for many finance interviews."
+  },
+  "male-finance-business-casual": {
+    "top": "Dress shirt with optional blazer",
+    "bottom": "Wool dress pants",
+    "shoes": "Leather loafers",
+    "accessories": "Classic watch",
+    "style": "Business Casual",
+    "explanation": "Professional and conservative while slightly less formal than full suit."
+  },
+  "male-finance-casual": {
+    "top": "Fine knit sweater over collared shirt",
+    "bottom": "Tailored chinos",
+    "shoes": "Leather shoes",
+    "accessories": "Leather belt",
+    "style": "Casual",
+    "explanation": "Even casual in finance should still look structured and disciplined."
+  },
+  "male-marketing-business-formal": {
+    "top": "Crisp shirt with modern blazer",
+    "bottom": "Tailored trousers",
+    "shoes": "Derby shoes",
+    "accessories": "Pocket square (optional)",
+    "style": "Business Formal",
+    "explanation": "A clean, styled formal look works for client-facing marketing interviews."
+  },
+  "male-marketing-business-casual": {
+    "top": "Button-down shirt",
+    "bottom": "Smart chinos",
+    "shoes": "Loafers",
+    "accessories": "Minimal watch",
+    "style": "Business Casual",
+    "explanation": "Business casual allows personality while keeping the look interview-safe."
+  },
+  "male-marketing-casual": {
+    "top": "Solid polo shirt",
+    "bottom": "Dark jeans",
+    "shoes": "Clean sneakers",
+    "accessories": "None",
+    "style": "Casual",
+    "explanation": "A refined casual combination that works in many creative teams."
+  },
+  "male-startup-business-formal": {
+    "top": "Unstructured blazer over dress shirt",
+    "bottom": "Tailored chinos",
+    "shoes": "Loafers",
+    "accessories": "Slim watch",
+    "style": "Business Formal",
+    "explanation": "Elevated but flexible for senior startup roles and founder interviews."
+  },
+  "male-startup-business-casual": {
+    "top": "Oxford shirt",
+    "bottom": "Slim chinos",
+    "shoes": "Chelsea boots",
+    "accessories": "Simple belt",
+    "style": "Business Casual",
+    "explanation": "A startup-friendly outfit that still reads intentional and prepared."
+  },
+  "male-startup-casual": {
+    "top": "Crew-neck knit",
+    "bottom": "Dark jeans",
+    "shoes": "Minimal sneakers",
+    "accessories": "None",
+    "style": "Casual",
+    "explanation": "Relaxed but polished, suitable for casual startup environments."
+  },
+  "male-general-business-formal": {
+    "top": "Dress shirt and navy blazer",
+    "bottom": "Tailored dark trousers",
+    "shoes": "Leather oxfords",
+    "accessories": "Classic tie",
+    "style": "Business Formal",
+    "explanation": "A dependable formal interview uniform across most industries."
+  },
+  "male-general-business-casual": {
+    "top": "Button-down shirt",
+    "bottom": "Chinos",
+    "shoes": "Loafers",
+    "accessories": "Leather belt",
+    "style": "Business Casual",
+    "explanation": "The safest recommendation when company dress code is uncertain."
+  },
+  "male-general-casual": {
+    "top": "Polo or knit top",
+    "bottom": "Dark clean jeans",
+    "shoes": "Leather sneakers",
+    "accessories": "None",
+    "style": "Casual",
+    "explanation": "Simple casual outfit that still looks interview-appropriate."
+  }
+}
