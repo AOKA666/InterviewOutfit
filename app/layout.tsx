@@ -1,11 +1,39 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import { absoluteUrl, pageTitle, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Interview Outfit Generator | Find the Perfect Interview Look",
-  description:
-    "Use our interview outfit generator to find the best outfit for your job interview based on industry and dress code."
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: pageTitle("Interview Outfit Generator"),
+    template: `%s | ${siteConfig.name}`
+  },
+  description: siteConfig.description,
+  alternates: {
+    canonical: "/"
+  },
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    title: pageTitle("Interview Outfit Generator"),
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: absoluteUrl(siteConfig.ogImage),
+        width: 1200,
+        height: 630,
+        alt: "Interview Outfit Generator"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle("Interview Outfit Generator"),
+    description: siteConfig.description,
+    images: [absoluteUrl(siteConfig.ogImage)]
+  }
 };
 
 export default function RootLayout({
@@ -13,9 +41,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${siteConfig.url}/blog?query={search_term_string}`,
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur">
           <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 md:px-6">
             <Link href="/" className="text-sm font-bold tracking-wide text-ink">

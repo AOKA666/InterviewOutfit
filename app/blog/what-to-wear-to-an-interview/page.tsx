@@ -1,14 +1,65 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { absoluteUrl, pageTitle, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "What to Wear to a Job Interview (Complete Guide)",
+  title: pageTitle("What to Wear to a Job Interview"),
   description:
-    "Complete guide on what to wear to an interview: dress code, color, shoes, seasonal strategy, and mistakes to avoid."
+    "Complete guide on what to wear to a job interview, including dress code, colors, shoes, seasonal strategy, and outfit mistakes to avoid.",
+  alternates: {
+    canonical: "/blog/what-to-wear-to-an-interview"
+  },
+  openGraph: {
+    title: pageTitle("What to Wear to a Job Interview"),
+    description:
+      "A complete guide to interview dress code, business casual outfits, formal looks, shoes, seasonal layers, and common mistakes.",
+    url: absoluteUrl("/blog/what-to-wear-to-an-interview"),
+    type: "article"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle("What to Wear to a Job Interview"),
+    description:
+      "A complete guide to interview dress code, business casual outfits, formal looks, shoes, seasonal layers, and common mistakes."
+  }
 };
 
+const faqItems = [
+  {
+    question: "What is the safest thing to wear to a job interview?",
+    answer:
+      "For most professional roles, polished business casual is the safest starting point. Add a blazer or more formal shoes if the company appears conservative."
+  },
+  {
+    question: "Should I wear black to an interview?",
+    answer:
+      "Black can work, but navy, charcoal, soft blue, and other balanced neutrals often feel more approachable for daytime interviews."
+  }
+];
+
 export default function BlogCompleteGuidePage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "What to Wear to a Job Interview (Complete Guide)",
+    description: metadata.description,
+    datePublished: "2026-03-20T00:00:00.000Z",
+    dateModified: "2026-03-20T00:00:00.000Z",
+    author: {
+      "@type": "Organization",
+      name: siteConfig.name
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url
+    },
+    mainEntityOfPage: absoluteUrl("/blog/what-to-wear-to-an-interview")
+  };
+
   return (
     <main className="mx-auto w-full max-w-4xl space-y-6 px-4 py-12 md:px-6 md:py-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <h1 className="text-4xl font-bold text-ink">
         What to Wear to a Job Interview (Complete Guide)
       </h1>
@@ -17,7 +68,8 @@ export default function BlogCompleteGuidePage() {
         The fastest way to decide what to wear to an interview is to answer four questions. What
         industry is this role in? What is the expected dress code? What is the weather? What outfit
         lets you move comfortably for one to three hours? If you can answer these clearly, outfit
-        decisions become predictable and low stress.
+        decisions become predictable and low stress. If you want an instant recommendation before going
+        deeper, use the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">interview outfit generator</Link>.
       </p>
       <p className="text-slate-700">
         Interview dress code usually falls into three levels: business formal, business casual, and
@@ -29,7 +81,7 @@ export default function BlogCompleteGuidePage() {
         If you do not know the company norm, business casual is the safest answer. It shows preparation
         and flexibility. A polished shirt or blouse, tailored pants, and clean leather shoes is a
         reliable structure for almost all industries. You can add a blazer to move one level more
-        formal when needed.
+        formal when needed. This is why candidates searching for <strong>what to wear to a job interview</strong> often end up with the same core answer: clean, structured, and slightly elevated.
       </p>
       <p className="text-slate-700">
         Colors should support clarity. Neutral tones such as navy, charcoal, black, white, gray, and
@@ -50,6 +102,14 @@ export default function BlogCompleteGuidePage() {
         Seasonal adjustment improves performance. In summer, breathable fabrics and lighter layers keep
         you focused. In winter, use warm but structured layers such as tailored coats and fine knitwear.
         In spring and autumn, bring adaptable layers for commuting and changing indoor temperatures.
+        The standard does not change with weather; only the fabric and layering strategy should change.
+      </p>
+      <p className="text-slate-700">
+        It also helps to think in signals. Interviewers notice whether your outfit feels aligned with
+        the role, not whether it is fashion-forward. A candidate in consulting or law who shows up in a
+        clean suit or elevated business casual usually reads as prepared. A candidate in tech who wears
+        structured smart casual with polished shoes reads as calibrated. The goal is to lower friction,
+        not create a style event.
       </p>
       <p className="text-slate-700">
         Common mistakes include underdressing, overdressing far beyond team culture, wearing brand-new
@@ -59,8 +119,30 @@ export default function BlogCompleteGuidePage() {
       </p>
       <p className="text-slate-700">
         Final rule: choose an outfit that is one level above casual daily wear, aligned to the role,
-        and easy to wear confidently. Professional consistency beats fashion complexity every time.
+        and easy to wear confidently. Professional consistency beats fashion complexity every time. If
+        you want more specific help, compare the <Link href="/blog/interview-outfit-women" className="font-semibold text-cyan underline-offset-4 hover:underline">women&apos;s interview outfit guide</Link>, the <Link href="/blog/interview-outfit-men" className="font-semibold text-cyan underline-offset-4 hover:underline">men&apos;s interview outfit guide</Link>, and the <Link href="/blog/tech-interview-outfit" className="font-semibold text-cyan underline-offset-4 hover:underline">tech interview outfit guide</Link>, then test your final choice in the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">generator</Link>.
       </p>
+
+      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-2xl font-semibold text-ink">Related reads</h2>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li><Link href="/blog/interview-outfit-women" className="text-cyan underline-offset-4 hover:underline">Best Interview Outfits for Women</Link></li>
+          <li><Link href="/blog/interview-outfit-men" className="text-cyan underline-offset-4 hover:underline">Best Interview Outfits for Men</Link></li>
+        </ul>
+        <Link href="/interview-outfit-generator" className="mt-5 inline-block rounded-xl bg-coral px-5 py-3 text-sm font-semibold text-white hover:opacity-90">
+          Try the Interview Outfit Generator
+        </Link>
+      </section>
+
+      <section className="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-2xl font-semibold text-ink">FAQ</h2>
+        {faqItems.map((item) => (
+          <div key={item.question}>
+            <h3 className="text-lg font-semibold text-slate-800">{item.question}</h3>
+            <p className="mt-1 text-slate-700">{item.answer}</p>
+          </div>
+        ))}
+      </section>
     </main>
   );
 }
