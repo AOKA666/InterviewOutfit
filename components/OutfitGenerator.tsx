@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import outfitData from "@/data/outfit-data.json";
+import { outfitImages, seasonOffsets } from "@/data/outfit-images";
 
 type Gender = "female" | "male";
 type Industry = "tech" | "finance" | "marketing" | "startup" | "general";
@@ -18,19 +19,6 @@ type Outfit = {
   explanation: string;
 };
 
-const imagesByGender: Record<Gender, string[]> = {
-  female: [
-    "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80",
-    "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80",
-    "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=80"
-  ],
-  male: [
-    "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=900&q=80",
-    "https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=900&q=80",
-    "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80"
-  ]
-};
-
 const seasonHint: Record<Season, string> = {
   spring: "Add a lightweight trench or cardigan for changing temperatures.",
   summer: "Choose breathable fabrics and keep layers light.",
@@ -40,6 +28,27 @@ const seasonHint: Record<Season, string> = {
 
 function buildKey(gender: Gender, industry: Industry, formality: Formality) {
   return `${gender}-${industry}-${formality}`;
+}
+
+function buildPreviewImages(
+  gender: Gender,
+  industry: Industry,
+  formality: Formality,
+  season: Season
+) {
+  const key = buildKey(gender, industry, formality) as keyof typeof outfitImages;
+  const matchedImages = outfitImages[key];
+
+  if (!matchedImages?.length) {
+    return [];
+  }
+
+  const offset = seasonOffsets[season] % matchedImages.length;
+
+  return Array.from({ length: matchedImages.length }, (_, idx) => {
+    const imageIndex = (idx + offset) % matchedImages.length;
+    return matchedImages[imageIndex];
+  });
 }
 
 export default function OutfitGenerator() {
@@ -53,6 +62,11 @@ export default function OutfitGenerator() {
     const key = buildKey(gender, industry, formality);
     return (outfitData as Record<string, Outfit>)[key];
   }, [gender, industry, formality]);
+
+  const previewImages = useMemo(
+    () => buildPreviewImages(gender, industry, formality, season),
+    [gender, industry, formality, season]
+  );
 
   const fallback: Outfit = {
     top: "Neutral button-down shirt",
@@ -165,11 +179,11 @@ export default function OutfitGenerator() {
           <p className="rounded-xl bg-cloud p-4 text-slate-700">{outfit.explanation}</p>
 
           <div className="grid gap-4 md:grid-cols-3">
-            {imagesByGender[gender].map((src, idx) => (
-              <div key={src} className="overflow-hidden rounded-2xl border border-slate-200">
+            {previewImages.map((src, idx) => (
+              <div key={`${src}-${idx}`} className="overflow-hidden rounded-2xl border border-slate-200">
                 <Image
                   src={src}
-                  alt={`Outfit example ${idx + 1}`}
+                  alt={`${gender} ${outfit.style} ${industry} interview outfit example ${idx + 1} for ${season}`}
                   width={900}
                   height={1200}
                   className="h-56 w-full object-cover"
