@@ -20,10 +20,54 @@ type Outfit = {
 };
 
 const seasonHint: Record<Season, string> = {
-  spring: "Add a lightweight trench or cardigan for changing temperatures.",
-  summer: "Choose breathable fabrics and keep layers light.",
-  autumn: "Use textured layers like knitwear and structured outerwear.",
-  winter: "Prioritize warm layering with a coat that still looks tailored."
+  spring: "Use adaptable layers that work across cool mornings and warmer afternoons.",
+  summer: "Lean on breathable fabrics and lighter footwear to stay polished without overheating.",
+  autumn: "Introduce texture and light outerwear so the outfit feels sharper and more seasonal.",
+  winter: "Build warmth into the outfit with refined knit layers and a tailored outer layer."
+};
+
+const seasonAdjustments: Record<
+  Season,
+  {
+    top: string;
+    bottom: string;
+    shoes: string;
+    accessories: string;
+    explanation: string;
+  }
+> = {
+  spring: {
+    top: "Switch to lighter layers such as a breathable blouse, crisp shirt, or thin knit under a blazer",
+    bottom: "Choose ankle trousers, cropped tailored pants, or lighter-weight suiting fabrics",
+    shoes: "Use loafers, flats, or polished derbies that work in changing weather",
+    accessories: "Add a lightweight trench, simple tote, or fine cardigan for commute flexibility",
+    explanation:
+      "Spring interview outfits should look structured but adaptable. Light layers help you stay polished when temperatures shift during the day."
+  },
+  summer: {
+    top: "Favor breathable cotton, linen-blend, or lightweight shirts and blouses with minimal layering",
+    bottom: "Use lightweight trousers, airy skirts, or unlined tailored pieces that still hold shape",
+    shoes: "Choose breathable loafers, flats, or low-profile dress shoes instead of heavy footwear",
+    accessories: "Keep accessories minimal and practical, with lighter bags and less visible layering",
+    explanation:
+      "Summer interview outfits need to reduce heat without looking casual. Breathable fabrics and simpler layering keep the outfit sharp."
+  },
+  autumn: {
+    top: "Add texture with fine knits, structured shirts, or layered blazers in richer seasonal tones",
+    bottom: "Use darker tailored trousers, heavier chinos, or more substantial skirt fabrics",
+    shoes: "Loafers, derbies, boots, or closed-toe shoes work well when weather turns cooler",
+    accessories: "Add a refined coat, belt, or knit layer that makes the outfit feel intentional",
+    explanation:
+      "Autumn interview outfits should look slightly richer and more grounded. Texture and sharper layers make the recommendation feel more complete."
+  },
+  winter: {
+    top: "Use warmer base layers such as fine knits, thicker shirts, or blouses that layer cleanly under outerwear",
+    bottom: "Pick wool trousers, heavier tailoring, or winter-ready fabrics that still look neat indoors",
+    shoes: "Choose polished closed-toe shoes or boots with enough structure for cold weather",
+    accessories: "Add a tailored coat, tights, scarf, or understated cold-weather layer that stays professional",
+    explanation:
+      "Winter interview outfits need real warmth built into the look, not added as an afterthought. The outfit should stay formal, clean, and comfortable from commute to interview room."
+  }
 };
 
 function buildKey(gender: Gender, industry: Industry, formality: Formality) {
@@ -49,6 +93,19 @@ function buildPreviewImages(
     const imageIndex = (idx + offset) % matchedImages.length;
     return matchedImages[imageIndex];
   });
+}
+
+function adaptOutfitForSeason(outfit: Outfit, season: Season): Outfit {
+  const seasonal = seasonAdjustments[season];
+
+  return {
+    ...outfit,
+    top: `${outfit.top}; ${seasonal.top.toLowerCase()}`,
+    bottom: `${outfit.bottom}; ${seasonal.bottom.toLowerCase()}`,
+    shoes: `${outfit.shoes}; ${seasonal.shoes.toLowerCase()}`,
+    accessories: `${outfit.accessories}; ${seasonal.accessories.toLowerCase()}`,
+    explanation: `${outfit.explanation} ${seasonal.explanation}`
+  };
 }
 
 export default function OutfitGenerator() {
@@ -78,7 +135,7 @@ export default function OutfitGenerator() {
       "When in doubt, business casual is usually the safest interview dress code."
   };
 
-  const outfit = result ?? fallback;
+  const outfit = adaptOutfitForSeason(result ?? fallback, season);
 
   return (
     <section id="generator" className="space-y-8">
