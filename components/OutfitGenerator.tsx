@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import outfitData from "@/data/outfit-data.json";
+import generatedImages from "@/data/generated-outfit-images.json";
 import { outfitImages, seasonOffsets } from "@/data/outfit-images";
 
 type Gender = "female" | "male";
@@ -80,8 +81,16 @@ function buildPreviewImages(
   formality: Formality,
   season: Season
 ) {
-  const key = buildKey(gender, industry, formality) as keyof typeof outfitImages;
-  const matchedImages = outfitImages[key];
+  // Priority 1: AI-generated images from R2 (key includes season)
+  const fullKey = `${gender}-${industry}-${formality}-${season}`;
+  const generated = (generatedImages as Record<string, string[]>)[fullKey];
+  if (generated?.length) {
+    return generated;
+  }
+
+  // Priority 2: fallback to manually curated Unsplash images
+  const baseKey = buildKey(gender, industry, formality) as keyof typeof outfitImages;
+  const matchedImages = outfitImages[baseKey];
 
   if (!matchedImages?.length) {
     return [];
