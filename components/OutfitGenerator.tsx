@@ -246,13 +246,13 @@ export default function OutfitGenerator() {
 
           <div className="grid gap-4 md:grid-cols-3">
             {previewImages.map((src, idx) => (
-              <div key={`${src}-${idx}`} className="overflow-hidden rounded-2xl border border-slate-200">
+              <div key={`${src}-${idx}`} className="aspect-[9/16] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
                 <Image
                   src={src}
                   alt={`${gender} ${outfit.style} ${industry} interview outfit example ${idx + 1} for ${season}`}
-                  width={900}
-                  height={1200}
-                  className="h-56 w-full object-cover"
+                  width={1080}
+                  height={1920}
+                  className="h-full w-full object-cover"
                 />
               </div>
             ))}
