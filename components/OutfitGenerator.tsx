@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import outfitData from "@/data/outfit-data.json";
 import generatedImages from "@/data/generated-outfit-images.json";
 import { outfitImages, seasonOffsets } from "@/data/outfit-images";
@@ -123,6 +123,8 @@ export default function OutfitGenerator() {
   const [formality, setFormality] = useState<Formality>("business-casual");
   const [season, setSeason] = useState<Season>("spring");
   const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef<HTMLDivElement | null>(null);
+  const resultRef = useRef<HTMLDivElement | null>(null);
 
   const result = useMemo(() => {
     const key = buildKey(gender, industry, formality);
@@ -146,9 +148,22 @@ export default function OutfitGenerator() {
 
   const outfit = adaptOutfitForSeason(result ?? fallback, season);
 
+  useEffect(() => {
+    if (submitted && resultRef.current) {
+      resultRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [submitted, gender, industry, formality, season]);
+
+  function handleRetry() {
+    setSubmitted(false);
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   return (
     <section id="generator" className="space-y-8">
-      <div className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm md:p-8">
+      <div ref={formRef} className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm md:p-8">
         <h2 className="text-2xl font-semibold text-ink">Interview Outfit Tool</h2>
         <p className="mt-2 text-slate-600">
           Select your interview context and get a practical outfit recommendation.
@@ -219,7 +234,7 @@ export default function OutfitGenerator() {
       </div>
 
       {submitted && (
-        <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+        <div ref={resultRef} className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
           <h2 className="text-2xl font-semibold text-ink">Recommended Interview Outfit</h2>
 
           <div className="grid gap-4 md:grid-cols-3">
@@ -258,6 +273,16 @@ export default function OutfitGenerator() {
           </div>
 
           <p className="rounded-xl bg-cloud p-4 text-slate-700">{outfit.explanation}</p>
+
+          <div className="flex justify-end">
+            <button
+              type="button"
+              onClick={handleRetry}
+              className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+            >
+              Retry
+            </button>
+          </div>
         </div>
       )}
     </section>
