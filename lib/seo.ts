@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "Interview Outfit Generator",
   description:
     "Interview outfit ideas, job interview style guides, and a free interview outfit generator for business formal, business casual, and tech interviews.",
-  url: "https://interviewoutfit.com",
+  url: "https://outfitguide.online",
   ogImage: "/og-image.png"
 };
 

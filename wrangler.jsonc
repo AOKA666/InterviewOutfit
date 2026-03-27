@@ -23,5 +23,12 @@
 		// Enable image optimization
 		// see https://opennext.js.org/cloudflare/howtos/image
 		"binding": "IMAGES"
-	}
+	},
+	"routes": [
+		{
+			"pattern": "outfitguide.online/*",
+			"zone_name": "outfitguide.online",
+			"custom_domain": true
+		}
+	]
 }
