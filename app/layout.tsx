@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import "./globals.css";
 import { absoluteUrl, pageTitle, siteConfig } from "@/lib/seo";
 
@@ -57,6 +58,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="RJZFZznkI3bpmPtbio5Npg"
+          strategy="afterInteractive"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
