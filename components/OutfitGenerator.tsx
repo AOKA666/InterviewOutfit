@@ -221,6 +221,21 @@ export default function OutfitGenerator() {
       {submitted && (
         <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
           <h2 className="text-2xl font-semibold text-ink">Recommended Interview Outfit</h2>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {previewImages.map((src, idx) => (
+              <div key={`${src}-${idx}`} className="aspect-[9/16] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+                <Image
+                  src={src}
+                  alt={`${gender} ${outfit.style} ${industry} interview outfit example ${idx + 1} for ${season}`}
+                  width={1080}
+                  height={1920}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
           <div className="grid gap-4 text-slate-700 md:grid-cols-2">
             <p>
               <strong>Top:</strong> {outfit.top}
@@ -243,20 +258,6 @@ export default function OutfitGenerator() {
           </div>
 
           <p className="rounded-xl bg-cloud p-4 text-slate-700">{outfit.explanation}</p>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {previewImages.map((src, idx) => (
-              <div key={`${src}-${idx}`} className="aspect-[9/16] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
-                <Image
-                  src={src}
-                  alt={`${gender} ${outfit.style} ${industry} interview outfit example ${idx + 1} for ${season}`}
-                  width={1080}
-                  height={1920}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
         </div>
       )}
     </section>
