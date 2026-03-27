@@ -26,7 +26,7 @@
 	},
 	"routes": [
 		{
-			"pattern": "outfitguide.online/*",
+			"pattern": "outfitguide.online",
 			"zone_name": "outfitguide.online",
 			"custom_domain": true
 		}
