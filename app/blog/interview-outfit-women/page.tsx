@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { absoluteUrl, pageTitle, siteConfig } from "@/lib/seo";
+import { absoluteUrl, buildBlogPostingSchema, buildBreadcrumbSchema, buildFaqSchema, pageTitle } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: pageTitle("Best Interview Outfits for Women in 2025"),
   description:
     "A practical guide to interview outfit women ideas, business formal and business casual outfits, shoes, layering, and common interview style mistakes.",
+  keywords: [
+    "interview outfit women",
+    "women job interview outfit",
+    "business casual interview outfit women",
+    "what women should wear to an interview"
+  ],
   alternates: {
     canonical: "/blog/interview-outfit-women"
   },
@@ -38,28 +44,27 @@ const faqItems = [
 ];
 
 export default function BlogWomenPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: "Best Interview Outfits for Women in 2025",
-    description: metadata.description,
-    datePublished: "2026-03-20T00:00:00.000Z",
-    dateModified: "2026-03-20T00:00:00.000Z",
-    author: {
-      "@type": "Organization",
-      name: siteConfig.name
-    },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url
-    },
-    mainEntityOfPage: absoluteUrl("/blog/interview-outfit-women")
-  };
+  const articleSchema = buildBlogPostingSchema({
+    title: "Best Interview Outfits for Women in 2025",
+    description: metadata.description as string,
+    path: "/blog/interview-outfit-women",
+    publishedTime: "2026-03-20T00:00:00.000Z",
+    keywords: metadata.keywords as string[]
+  });
+
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: metadata.title as string, path: metadata.alternates?.canonical as string }
+  ]);
+
+  const faqSchema = buildFaqSchema(faqItems);
 
   return (
     <main className="mx-auto w-full max-w-4xl space-y-6 px-4 py-12 md:px-6 md:py-16">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <h1 className="text-4xl font-bold text-ink">Best Interview Outfits for Women in 2025</h1>
       <h2 className="text-2xl font-semibold text-slate-800">How to Choose an Interview Outfit</h2>
       <p className="text-slate-700">

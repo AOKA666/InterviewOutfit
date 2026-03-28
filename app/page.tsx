@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { absoluteUrl, pageTitle, siteConfig } from "@/lib/seo";
+import { absoluteUrl, buildBreadcrumbSchema, buildFaqSchema, pageTitle, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: pageTitle("Interview Outfit Generator"),
   description:
     "Use the free interview outfit generator to choose what to wear to a job interview, compare business casual vs formal looks, and read practical interview outfit guides.",
+  keywords: [
+    "interview outfit",
+    "interview outfit generator",
+    "what to wear to an interview",
+    "job interview outfit",
+    "interview outfit women",
+    "interview outfit men",
+    "tech interview outfit"
+  ],
   alternates: {
     canonical: "/"
   },
@@ -49,6 +58,7 @@ export default function HomePage() {
     name: "Interview Outfit Generator",
     url: absoluteUrl("/"),
     description: metadata.description,
+    about: ["Interview outfit", "Job interview outfit", "Interview preparation"],
     isPartOf: {
       "@type": "WebSite",
       name: siteConfig.name,
@@ -56,11 +66,22 @@ export default function HomePage() {
     }
   };
 
+  const breadcrumbSchema = buildBreadcrumbSchema([{ name: "Home", path: "/" }]);
+  const faqSchema = buildFaqSchema(faqItems);
+
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-20 md:px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <section className="rounded-3xl border border-slate-200 bg-white/85 p-8 shadow-sm md:p-12">

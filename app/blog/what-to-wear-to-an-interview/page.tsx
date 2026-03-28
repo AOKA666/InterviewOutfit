@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { absoluteUrl, pageTitle, siteConfig } from "@/lib/seo";
+import { absoluteUrl, buildBlogPostingSchema, buildBreadcrumbSchema, buildFaqSchema, pageTitle } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: pageTitle("What to Wear to a Job Interview"),
   description:
     "Complete guide on what to wear to a job interview, including dress code, colors, shoes, seasonal strategy, and outfit mistakes to avoid.",
+  keywords: [
+    "what to wear to a job interview",
+    "job interview outfit",
+    "interview dress code",
+    "business casual interview outfit"
+  ],
   alternates: {
     canonical: "/blog/what-to-wear-to-an-interview"
   },
@@ -38,28 +44,27 @@ const faqItems = [
 ];
 
 export default function BlogCompleteGuidePage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: "What to Wear to a Job Interview (Complete Guide)",
-    description: metadata.description,
-    datePublished: "2026-03-20T00:00:00.000Z",
-    dateModified: "2026-03-20T00:00:00.000Z",
-    author: {
-      "@type": "Organization",
-      name: siteConfig.name
-    },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url
-    },
-    mainEntityOfPage: absoluteUrl("/blog/what-to-wear-to-an-interview")
-  };
+  const articleSchema = buildBlogPostingSchema({
+    title: "What to Wear to a Job Interview (Complete Guide)",
+    description: metadata.description as string,
+    path: "/blog/what-to-wear-to-an-interview",
+    publishedTime: "2026-03-20T00:00:00.000Z",
+    keywords: metadata.keywords as string[]
+  });
+
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: metadata.title as string, path: metadata.alternates?.canonical as string }
+  ]);
+
+  const faqSchema = buildFaqSchema(faqItems);
 
   return (
     <main className="mx-auto w-full max-w-4xl space-y-6 px-4 py-12 md:px-6 md:py-16">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <h1 className="text-4xl font-bold text-ink">
         What to Wear to a Job Interview (Complete Guide)
       </h1>

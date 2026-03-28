@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { absoluteUrl, blogPosts, pageTitle } from "@/lib/seo";
+import { absoluteUrl, blogPosts, buildBreadcrumbSchema, pageTitle } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: pageTitle("Interview Outfit Blog"),
   description:
     "Interview outfit blog with practical guides on what to wear to a job interview, business casual interview outfits, tech interview style, and outfit ideas for women and men.",
+  keywords: [
+    "interview outfit blog",
+    "what to wear to a job interview",
+    "interview outfit women",
+    "interview outfit men",
+    "tech interview outfit"
+  ],
   alternates: {
     canonical: "/blog"
   },
@@ -40,8 +47,33 @@ const categories = [
 ];
 
 export default function BlogIndexPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" }
+  ]);
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Interview Outfit Blog",
+    url: absoluteUrl("/blog"),
+    description: metadata.description,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: blogPosts.map((post, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: absoluteUrl(`/blog/${post.slug}`),
+        name: post.title,
+        description: post.description
+      }))
+    }
+  };
+
   return (
     <main className="mx-auto w-full max-w-6xl space-y-10 px-4 py-12 md:px-6 md:py-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
         <h1 className="text-4xl font-bold text-ink md:text-5xl">Interview Outfit Blog</h1>
         <p className="mt-4 max-w-3xl text-slate-600">

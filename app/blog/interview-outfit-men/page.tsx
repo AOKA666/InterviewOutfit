@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { absoluteUrl, pageTitle, siteConfig } from "@/lib/seo";
+import { absoluteUrl, buildBlogPostingSchema, buildBreadcrumbSchema, buildFaqSchema, pageTitle } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: pageTitle("Best Interview Outfits for Men"),
   description:
     "Reliable interview outfit men combinations for formal, business casual, startup, and tech interview settings, with shoes, colors, and grooming advice.",
+  keywords: [
+    "interview outfit men",
+    "men job interview outfit",
+    "business casual interview outfit men",
+    "what men should wear to an interview"
+  ],
   alternates: {
     canonical: "/blog/interview-outfit-men"
   },
@@ -38,28 +44,27 @@ const faqItems = [
 ];
 
 export default function BlogMenPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: "Best Interview Outfits for Men",
-    description: metadata.description,
-    datePublished: "2026-03-20T00:00:00.000Z",
-    dateModified: "2026-03-20T00:00:00.000Z",
-    author: {
-      "@type": "Organization",
-      name: siteConfig.name
-    },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url
-    },
-    mainEntityOfPage: absoluteUrl("/blog/interview-outfit-men")
-  };
+  const articleSchema = buildBlogPostingSchema({
+    title: "Best Interview Outfits for Men",
+    description: metadata.description as string,
+    path: "/blog/interview-outfit-men",
+    publishedTime: "2026-03-20T00:00:00.000Z",
+    keywords: metadata.keywords as string[]
+  });
+
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: metadata.title as string, path: metadata.alternates?.canonical as string }
+  ]);
+
+  const faqSchema = buildFaqSchema(faqItems);
 
   return (
     <main className="mx-auto w-full max-w-4xl space-y-6 px-4 py-12 md:px-6 md:py-16">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <h1 className="text-4xl font-bold text-ink">Best Interview Outfits for Men</h1>
       <h2 className="text-2xl font-semibold text-slate-800">How to Choose an Interview Outfit</h2>
       <p className="text-slate-700">

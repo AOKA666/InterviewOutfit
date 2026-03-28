@@ -49,3 +49,75 @@ export function absoluteUrl(path = "/") {
 export function pageTitle(title: string) {
   return `${title} | ${siteConfig.name}`;
 }
+
+export function buildBreadcrumbSchema(
+  items: Array<{
+    name: string;
+    path: string;
+  }>
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path)
+    }))
+  };
+}
+
+export function buildFaqSchema(
+  items: Array<{
+    question: string;
+    answer: string;
+  }>
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  };
+}
+
+export function buildBlogPostingSchema({
+  title,
+  description,
+  path,
+  publishedTime,
+  keywords
+}: {
+  title: string;
+  description: string;
+  path: string;
+  publishedTime: string;
+  keywords: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    datePublished: publishedTime,
+    dateModified: publishedTime,
+    author: {
+      "@type": "Organization",
+      name: siteConfig.name
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url
+    },
+    mainEntityOfPage: absoluteUrl(path),
+    keywords: keywords.join(", ")
+  };
+}

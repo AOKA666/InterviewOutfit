@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import OutfitGenerator from "@/components/OutfitGenerator";
-import { absoluteUrl, pageTitle, siteConfig } from "@/lib/seo";
+import { absoluteUrl, buildBreadcrumbSchema, buildFaqSchema, pageTitle, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: pageTitle("Interview Outfit Generator"),
   description:
     "Use our free interview outfit generator to choose the best job interview outfit by industry, dress code, season, and interview style.",
+  keywords: [
+    "interview outfit generator",
+    "job interview outfit",
+    "what to wear to an interview",
+    "business casual interview outfit",
+    "tech interview outfit"
+  ],
   alternates: {
     canonical: "/interview-outfit-generator"
   },
@@ -67,18 +74,11 @@ const relatedGuides = [
 ];
 
 export default function GeneratorPage() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer
-      }
-    }))
-  };
+  const faqSchema = buildFaqSchema(faqItems);
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Interview Outfit Generator", path: "/interview-outfit-generator" }
+  ]);
 
   const appSchema = {
     "@context": "https://schema.org",
@@ -99,6 +99,7 @@ export default function GeneratorPage() {
   return (
     <main className="mx-auto w-full max-w-6xl space-y-10 px-4 py-12 md:px-6 md:py-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="rounded-3xl border border-slate-200 bg-white/90 p-8 shadow-sm md:p-12">
