@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl, blogPosts, buildBreadcrumbSchema, pageTitle } from "@/lib/seo";
 
+function formatDate(dateString: string) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  }).format(new Date(dateString));
+}
+
 export const metadata: Metadata = {
   title: pageTitle("Interview Outfit Blog"),
   description:
@@ -89,6 +97,20 @@ export default function BlogIndexPage() {
         <p className="mt-3 text-slate-700">
           If you are new to interview prep, begin with the <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">complete guide on what to wear to a job interview</Link>. Then use the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">interview outfit generator</Link> to turn those rules into a practical outfit recommendation.
         </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <Link href="/blog/what-to-wear-to-an-interview" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
+            <h3 className="text-lg font-semibold text-ink">What to Wear to a Job Interview</h3>
+            <p className="mt-2 text-sm text-slate-600">Best first read for searchers comparing interview dress code basics.</p>
+          </Link>
+          <Link href="/blog/tech-interview-outfit" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
+            <h3 className="text-lg font-semibold text-ink">Tech Interview Outfit</h3>
+            <p className="mt-2 text-sm text-slate-600">Targets software engineer, startup, and product interview intent.</p>
+          </Link>
+          <Link href="/interview-outfit-generator" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
+            <h3 className="text-lg font-semibold text-ink">Try the Generator</h3>
+            <p className="mt-2 text-sm text-slate-600">Turn the advice into a quick outfit recommendation.</p>
+          </Link>
+        </div>
       </section>
 
       <div className="space-y-8">
@@ -107,6 +129,9 @@ export default function BlogIndexPage() {
                   </p>
                   <h3 className="mt-2 text-xl font-semibold text-ink">{post.title}</h3>
                   <p className="mt-2 text-slate-600">{post.description}</p>
+                  <p className="mt-3 text-xs text-slate-500">
+                    Updated {formatDate(post.updatedTime ?? post.publishedTime)}
+                  </p>
                 </Link>
               ))}
             </div>

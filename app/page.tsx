@@ -3,7 +3,7 @@ import Link from "next/link";
 import { absoluteUrl, buildBreadcrumbSchema, buildFaqSchema, pageTitle, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: pageTitle("Interview Outfit Generator"),
+  title: pageTitle("What to Wear to an Interview"),
   description:
     "Use the free interview outfit generator to choose what to wear to a job interview, compare business casual vs formal looks, and read practical interview outfit guides.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: "/"
   },
   openGraph: {
-    title: pageTitle("Interview Outfit Generator"),
+    title: pageTitle("What to Wear to an Interview"),
     description:
       "Choose the right job interview outfit faster with a free tool, practical style advice, and detailed interview outfit guides.",
     url: absoluteUrl("/"),
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: pageTitle("Interview Outfit Generator"),
+    title: pageTitle("What to Wear to an Interview"),
     description:
       "Choose the right job interview outfit faster with a free tool, practical style advice, and detailed interview outfit guides."
   }

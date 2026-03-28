@@ -14,7 +14,8 @@ export const blogPosts = [
     description:
       "A practical guide to interview outfit women ideas, business casual formulas, formal looks, shoes, layering, and common interview style mistakes.",
     category: "By audience",
-    publishedTime: "2026-03-20T00:00:00.000Z"
+    publishedTime: "2026-03-20T00:00:00.000Z",
+    updatedTime: "2026-03-28T00:00:00.000Z"
   },
   {
     slug: "interview-outfit-men",
@@ -22,7 +23,8 @@ export const blogPosts = [
     description:
       "Reliable interview outfit men combinations for finance, consulting, startup, and business casual interviews, with shoe, fit, and color advice.",
     category: "By audience",
-    publishedTime: "2026-03-20T00:00:00.000Z"
+    publishedTime: "2026-03-20T00:00:00.000Z",
+    updatedTime: "2026-03-28T00:00:00.000Z"
   },
   {
     slug: "what-to-wear-to-an-interview",
@@ -30,7 +32,8 @@ export const blogPosts = [
     description:
       "Learn what to wear to a job interview with practical advice on dress code, color palette, shoes, seasonal layers, and interview outfit mistakes.",
     category: "Fundamentals",
-    publishedTime: "2026-03-20T00:00:00.000Z"
+    publishedTime: "2026-03-20T00:00:00.000Z",
+    updatedTime: "2026-03-28T00:00:00.000Z"
   },
   {
     slug: "tech-interview-outfit",
@@ -38,7 +41,8 @@ export const blogPosts = [
     description:
       "Tech interview outfit guidance for software engineers, product managers, designers, and startup candidates who want a polished but natural look.",
     category: "By industry",
-    publishedTime: "2026-03-20T00:00:00.000Z"
+    publishedTime: "2026-03-20T00:00:00.000Z",
+    updatedTime: "2026-03-28T00:00:00.000Z"
   }
 ] as const;
 
@@ -93,12 +97,14 @@ export function buildBlogPostingSchema({
   description,
   path,
   publishedTime,
+  updatedTime,
   keywords
 }: {
   title: string;
   description: string;
   path: string;
   publishedTime: string;
+  updatedTime?: string;
   keywords: string[];
 }) {
   return {
@@ -107,7 +113,7 @@ export function buildBlogPostingSchema({
     headline: title,
     description,
     datePublished: publishedTime,
-    dateModified: publishedTime,
+    dateModified: updatedTime ?? publishedTime,
     author: {
       "@type": "Organization",
       name: siteConfig.name

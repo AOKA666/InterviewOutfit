@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { absoluteUrl, buildBlogPostingSchema, buildBreadcrumbSchema, buildFaqSchema, pageTitle } from "@/lib/seo";
+import { absoluteUrl, blogPosts, buildBlogPostingSchema, buildBreadcrumbSchema, buildFaqSchema, pageTitle } from "@/lib/seo";
+
+function formatDate(dateString: string) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  }).format(new Date(dateString));
+}
 
 export const metadata: Metadata = {
   title: pageTitle("What to Wear to a Job Interview"),
@@ -44,11 +52,15 @@ const faqItems = [
 ];
 
 export default function BlogCompleteGuidePage() {
+  const post = blogPosts.find((entry) => entry.slug === "what-to-wear-to-an-interview")!;
+  const relatedPosts = blogPosts.filter((entry) => entry.slug !== post.slug).slice(0, 3);
+
   const articleSchema = buildBlogPostingSchema({
     title: "What to Wear to a Job Interview (Complete Guide)",
     description: metadata.description as string,
     path: "/blog/what-to-wear-to-an-interview",
-    publishedTime: "2026-03-20T00:00:00.000Z",
+    publishedTime: post.publishedTime,
+    updatedTime: post.updatedTime,
     keywords: metadata.keywords as string[]
   });
 
@@ -68,6 +80,7 @@ export default function BlogCompleteGuidePage() {
       <h1 className="text-4xl font-bold text-ink">
         What to Wear to a Job Interview (Complete Guide)
       </h1>
+      <p className="text-sm text-slate-500">Published {formatDate(post.publishedTime)} · Updated {formatDate(post.updatedTime ?? post.publishedTime)}</p>
       <h2 className="text-2xl font-semibold text-slate-800">How to Choose an Interview Outfit</h2>
       <p className="text-slate-700">
         The fastest way to decide what to wear to an interview is to answer four questions. What
@@ -131,8 +144,13 @@ export default function BlogCompleteGuidePage() {
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="text-2xl font-semibold text-ink">Related reads</h2>
         <ul className="mt-4 space-y-2 text-slate-700">
-          <li><Link href="/blog/interview-outfit-women" className="text-cyan underline-offset-4 hover:underline">Best Interview Outfits for Women</Link></li>
-          <li><Link href="/blog/interview-outfit-men" className="text-cyan underline-offset-4 hover:underline">Best Interview Outfits for Men</Link></li>
+          {relatedPosts.map((relatedPost) => (
+            <li key={relatedPost.slug}>
+              <Link href={`/blog/${relatedPost.slug}`} className="text-cyan underline-offset-4 hover:underline">
+                {relatedPost.title}
+              </Link>
+            </li>
+          ))}
         </ul>
         <Link href="/interview-outfit-generator" className="mt-5 inline-block rounded-xl bg-coral px-5 py-3 text-sm font-semibold text-white hover:opacity-90">
           Try the Interview Outfit Generator
