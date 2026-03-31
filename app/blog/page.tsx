@@ -13,7 +13,7 @@ function formatDate(dateString: string) {
 export const metadata: Metadata = {
   title: pageTitle("Interview Outfit Blog"),
   description:
-    "Interview outfit blog with practical guides on what to wear to a job interview, business casual interview outfits, tech interview style, and outfit ideas for women and men.",
+    "Interview outfit blog with practical guides on job interview style, business casual looks, tech interview outfits, and tips for women and men.",
   keywords: [
     "interview outfit blog",
     "what to wear to a job interview",

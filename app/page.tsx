@@ -5,7 +5,7 @@ import { absoluteUrl, buildBreadcrumbSchema, buildFaqSchema, pageTitle, siteConf
 export const metadata: Metadata = {
   title: pageTitle("What to Wear to an Interview"),
   description:
-    "Use the free interview outfit generator to choose what to wear to a job interview, compare business casual vs formal looks, and read practical interview outfit guides.",
+    "Use the free interview outfit generator to choose what to wear to a job interview and get practical interview outfit guides.",
   keywords: [
     "interview outfit",
     "interview outfit generator",
