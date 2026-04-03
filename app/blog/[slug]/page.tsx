@@ -68,6 +68,100 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
+const relatedPostMap: Record<string, string[]> = {
+  "business-casual-interview-outfit": [
+    "what-to-wear-to-an-interview",
+    "best-shoes-for-an-interview",
+    "startup-interview-outfit",
+    "finance-interview-outfit"
+  ],
+  "startup-interview-outfit": [
+    "tech-interview-outfit",
+    "can-you-wear-jeans-to-an-interview",
+    "business-casual-interview-outfit",
+    "what-to-wear-to-an-interview"
+  ],
+  "interview-outfit-summer": [
+    "interview-outfit-winter",
+    "best-shoes-for-an-interview",
+    "what-to-wear-to-an-interview",
+    "business-casual-interview-outfit"
+  ],
+  "interview-outfit-winter": [
+    "interview-outfit-summer",
+    "best-shoes-for-an-interview",
+    "what-to-wear-to-an-interview",
+    "finance-interview-outfit"
+  ],
+  "best-shoes-for-an-interview": [
+    "business-casual-interview-outfit",
+    "finance-interview-outfit",
+    "startup-interview-outfit",
+    "what-to-wear-to-an-interview"
+  ],
+  "can-you-wear-jeans-to-an-interview": [
+    "startup-interview-outfit",
+    "business-casual-interview-outfit",
+    "tech-interview-outfit",
+    "what-to-wear-to-an-interview"
+  ],
+  "finance-interview-outfit": [
+    "business-casual-interview-outfit",
+    "best-shoes-for-an-interview",
+    "what-to-wear-to-an-interview",
+    "interview-outfit-men"
+  ],
+  "interview-outfit-for-college-students": [
+    "what-to-wear-to-an-interview",
+    "business-casual-interview-outfit",
+    "best-shoes-for-an-interview",
+    "interview-outfit-women"
+  ]
+};
+
+const toolLinkMap: Record<string, { href: string; label: string; description: string }> = {
+  "business-casual-interview-outfit": {
+    href: "/interview-outfit-generator",
+    label: "Generate a business casual interview outfit",
+    description: "Use the generator to compare industry, season, and dress code before locking your outfit."
+  },
+  "startup-interview-outfit": {
+    href: "/interview-outfit-generator",
+    label: "Check your startup interview outfit",
+    description: "Compare startup, tech, and business casual expectations in one quick recommendation flow."
+  },
+  "interview-outfit-summer": {
+    href: "/interview-outfit-generator",
+    label: "Plan a summer interview outfit",
+    description: "Use the generator to balance season, industry, and formality without overthinking the heat."
+  },
+  "interview-outfit-winter": {
+    href: "/interview-outfit-generator",
+    label: "Plan a winter interview outfit",
+    description: "Get a practical recommendation that accounts for weather and interview dress code together."
+  },
+  "best-shoes-for-an-interview": {
+    href: "/interview-outfit-generator",
+    label: "Match your shoes to the full outfit",
+    description: "Start with the generator, then use shoe choice to sharpen the final level of formality."
+  },
+  "can-you-wear-jeans-to-an-interview": {
+    href: "/interview-outfit-generator",
+    label: "Check if your interview setting allows jeans",
+    description: "Use the generator to compare startup, tech, and formal settings before gambling on denim."
+  },
+  "finance-interview-outfit": {
+    href: "/interview-outfit-generator",
+    label: "Build a safer finance interview outfit",
+    description: "Use the tool when you want a more conservative recommendation for formal industries."
+  },
+  "interview-outfit-for-college-students": {
+    href: "/interview-outfit-generator",
+    label: "Generate a low-risk student interview outfit",
+    description: "Use the generator to get a practical starting point for internships, campus recruiting, and first-job interviews."
+  }
+};
+
 export default function BlogDynamicArticlePage({ params }: { params: { slug: string } }) {
   const post = getPostBySlug(params.slug);
 
@@ -75,7 +169,12 @@ export default function BlogDynamicArticlePage({ params }: { params: { slug: str
     return null;
   }
 
-  const relatedPosts = blogPosts.filter((entry) => entry.slug !== post.slug).slice(0, 4);
+  const relatedPosts = (relatedPostMap[post.slug] ?? [])
+    .map((slug) => getPostBySlug(slug))
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+    .slice(0, 4);
+
+  const toolLink = toolLinkMap[post.slug];
 
   const articleSchema = buildBlogPostingSchema({
     title: post.title,
@@ -118,25 +217,42 @@ export default function BlogDynamicArticlePage({ params }: { params: { slug: str
 
       <p className="text-lg leading-8 text-slate-700">{post.intro}</p>
 
-      {post.sections.map((section) => (
+      {post.sections.map((section, index) => (
         <section key={section.title} className="space-y-3">
           <h2 className="text-2xl font-semibold text-slate-800">{section.title}</h2>
           <p className="text-slate-700">{section.body}</p>
+          {index === 0 && toolLink ? (
+            <div className="rounded-2xl border border-cyan/20 bg-cyan/5 p-5">
+              <p className="text-sm font-semibold uppercase tracking-wide text-cyan">Best next step</p>
+              <h3 className="mt-2 text-lg font-semibold text-ink">{toolLink.label}</h3>
+              <p className="mt-2 text-slate-700">{toolLink.description}</p>
+              <Link
+                href={toolLink.href}
+                className="mt-4 inline-block rounded-xl bg-ink px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+              >
+                Open the Interview Outfit Generator
+              </Link>
+            </div>
+          ) : null}
         </section>
       ))}
 
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-2xl font-semibold text-ink">Keep your outfit aligned with the role</h2>
+        <h2 className="text-2xl font-semibold text-ink">Use the tool, then go deeper</h2>
         <p className="mt-3 text-slate-700">
-          If you want a faster recommendation before interview day, use the{" "}
+          Use the{" "}
           <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">
             interview outfit generator
           </Link>{" "}
-          to compare dress code, industry, and season in one place. For broader rules, start with the{" "}
+          to compare dress code, industry, and season in one place. Then review the{" "}
           <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">
             complete interview outfit guide
-          </Link>
-          .
+          </Link>{" "}
+          and the{" "}
+          <Link href="/blog/business-casual-interview-outfit" className="font-semibold text-cyan underline-offset-4 hover:underline">
+            business casual interview outfit guide
+          </Link>{" "}
+          if you want safer, lower-risk outfit decisions.
         </p>
       </section>
 
@@ -152,15 +268,19 @@ export default function BlogDynamicArticlePage({ params }: { params: { slug: str
 
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="text-2xl font-semibold text-ink">Related reads</h2>
-        <ul className="mt-4 space-y-2 text-slate-700">
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
           {relatedPosts.map((relatedPost) => (
-            <li key={relatedPost.slug}>
-              <Link href={`/blog/${relatedPost.slug}`} className="text-cyan underline-offset-4 hover:underline">
-                {relatedPost.title}
-              </Link>
-            </li>
+            <Link
+              key={relatedPost.slug}
+              href={`/blog/${relatedPost.slug}`}
+              className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300"
+            >
+              <p className="text-sm font-semibold uppercase tracking-wide text-cyan">{relatedPost.category}</p>
+              <h3 className="mt-2 text-lg font-semibold text-ink">{relatedPost.title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{relatedPost.description}</p>
+            </Link>
           ))}
-        </ul>
+        </div>
       </section>
     </main>
   );
