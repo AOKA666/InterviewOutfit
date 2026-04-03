@@ -196,90 +196,122 @@ export default async function BlogDynamicArticlePage({ params }: { params: Promi
   const faqSchema = buildFaqSchema(post.faq);
 
   return (
-    <main className="mx-auto w-full max-w-4xl space-y-6 px-4 py-12 md:px-6 md:py-16">
+    <main className="mx-auto w-full max-w-6xl space-y-8 px-4 py-12 md:px-6 md:py-16 lg:space-y-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <h1 className="text-4xl font-bold text-ink">{post.title}</h1>
-      <p className="text-sm text-slate-500">
-        Published {formatDate(post.publishedTime)} · Updated {formatDate(post.updatedTime ?? post.publishedTime)}
-      </p>
+      <section className="surface overflow-hidden rounded-[36px] md:rounded-[40px]">
+        <div className="grid lg:grid-cols-[0.96fr_1.04fr] lg:items-stretch">
+          <div className="p-8 md:p-10 lg:p-12 xl:p-14">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan">{post.category}</p>
+            <h1 className="mt-4 text-4xl font-bold tracking-[-0.05em] text-ink md:text-5xl xl:text-6xl">
+              {post.title}
+            </h1>
+            <p className="mt-5 text-sm uppercase tracking-[0.16em] text-slate-400">
+              Published {formatDate(post.publishedTime)} · Updated {formatDate(post.updatedTime ?? post.publishedTime)}
+            </p>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{post.description}</p>
+          </div>
+          <div className="dark-lux p-6 md:p-8 lg:p-10">
+            <div className="relative z-10 h-full overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={1400}
+                height={1000}
+                className="h-full w-full object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
-        <Image
-          src={post.image}
-          alt={post.title}
-          width={1200}
-          height={800}
-          className="h-full w-full object-cover"
-          priority
-        />
+      {post.intro ? (
+        <section className="surface rounded-[32px] p-8 md:p-10 editorial-prose">
+          <p className="text-lg leading-8 text-slate-700 md:text-[19px]">{post.intro}</p>
+        </section>
+      ) : null}
+
+      <div className="grid gap-8 lg:grid-cols-[1fr_320px] xl:grid-cols-[1fr_360px]">
+        <div className="space-y-8">
+          <section className="surface rounded-[32px] p-8 md:p-10 editorial-prose">
+            {post.sections.map((section, index) => (
+              <section key={section.title} className={index === 0 ? "space-y-3" : "space-y-3 pt-6"}>
+                <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-800 md:text-3xl">{section.title}</h2>
+                <p className="text-[17px] text-slate-700">{section.body}</p>
+                {index === 0 && toolLink ? (
+                  <div className="mt-6 rounded-[24px] border border-cyan/20 bg-cyan/5 p-5">
+                    <p className="text-sm font-semibold uppercase tracking-wide text-cyan">Best next step</p>
+                    <h3 className="mt-2 text-lg font-semibold text-ink">{toolLink.label}</h3>
+                    <p className="mt-2 text-slate-700">{toolLink.description}</p>
+                    <Link
+                      href={toolLink.href}
+                      className="mt-4 inline-block rounded-2xl bg-ink px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
+                    >
+                      Open the Interview Outfit Generator
+                    </Link>
+                  </div>
+                ) : null}
+              </section>
+            ))}
+          </section>
+
+          <section className="surface rounded-[32px] p-6 md:p-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.03em] text-ink">Use the tool, then go deeper</h2>
+            <p className="mt-3 text-[15px] leading-7 text-slate-700">
+              Use the{" "}
+              <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">
+                interview outfit generator
+              </Link>{" "}
+              to compare dress code, industry, and season in one place. Then review the{" "}
+              <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">
+                complete interview outfit guide
+              </Link>{" "}
+              and the{" "}
+              <Link href="/blog/business-casual-interview-outfit" className="font-semibold text-cyan underline-offset-4 hover:underline">
+                business casual interview outfit guide
+              </Link>{" "}
+              if you want safer, lower-risk outfit decisions.
+            </p>
+          </section>
+        </div>
+
+        <aside className="space-y-6">
+          <section className="surface rounded-[28px] p-6">
+            <h2 className="text-xl font-semibold tracking-[-0.03em] text-ink">Article snapshot</h2>
+            <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
+              <p><strong>Category:</strong> {post.category}</p>
+              <p><strong>Published:</strong> {formatDate(post.publishedTime)}</p>
+              <p><strong>Updated:</strong> {formatDate(post.updatedTime ?? post.publishedTime)}</p>
+            </div>
+          </section>
+
+          <section className="surface space-y-4 rounded-[28px] p-6">
+            <h2 className="text-xl font-semibold tracking-[-0.03em] text-ink">FAQ</h2>
+            {post.faq.map((item) => (
+              <div key={item.question} className="rounded-[20px] bg-white/75 p-4">
+                <h3 className="text-base font-semibold text-slate-800">{item.question}</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-700">{item.answer}</p>
+              </div>
+            ))}
+          </section>
+        </aside>
       </div>
 
-      <p className="text-lg leading-8 text-slate-700">{post.intro}</p>
-
-      {post.sections.map((section, index) => (
-        <section key={section.title} className="space-y-3">
-          <h2 className="text-2xl font-semibold text-slate-800">{section.title}</h2>
-          <p className="text-slate-700">{section.body}</p>
-          {index === 0 && toolLink ? (
-            <div className="rounded-2xl border border-cyan/20 bg-cyan/5 p-5">
-              <p className="text-sm font-semibold uppercase tracking-wide text-cyan">Best next step</p>
-              <h3 className="mt-2 text-lg font-semibold text-ink">{toolLink.label}</h3>
-              <p className="mt-2 text-slate-700">{toolLink.description}</p>
-              <Link
-                href={toolLink.href}
-                className="mt-4 inline-block rounded-xl bg-ink px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-              >
-                Open the Interview Outfit Generator
-              </Link>
-            </div>
-          ) : null}
-        </section>
-      ))}
-
-      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-2xl font-semibold text-ink">Use the tool, then go deeper</h2>
-        <p className="mt-3 text-slate-700">
-          Use the{" "}
-          <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">
-            interview outfit generator
-          </Link>{" "}
-          to compare dress code, industry, and season in one place. Then review the{" "}
-          <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">
-            complete interview outfit guide
-          </Link>{" "}
-          and the{" "}
-          <Link href="/blog/business-casual-interview-outfit" className="font-semibold text-cyan underline-offset-4 hover:underline">
-            business casual interview outfit guide
-          </Link>{" "}
-          if you want safer, lower-risk outfit decisions.
-        </p>
-      </section>
-
-      <section className="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-2xl font-semibold text-ink">FAQ</h2>
-        {post.faq.map((item) => (
-          <div key={item.question}>
-            <h3 className="text-lg font-semibold text-slate-800">{item.question}</h3>
-            <p className="mt-1 text-slate-700">{item.answer}</p>
-          </div>
-        ))}
-      </section>
-
-      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-2xl font-semibold text-ink">Related reads</h2>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
+      <section className="surface rounded-[32px] p-6 md:p-8 lg:p-10">
+        <h2 className="text-2xl font-semibold tracking-[-0.03em] text-ink">Related reads</h2>
+        <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {relatedPosts.map((relatedPost) => (
             <Link
               key={relatedPost.slug}
               href={`/blog/${relatedPost.slug}`}
-              className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300"
+              className="soft-card rounded-[24px] p-5 transition hover:-translate-y-0.5 hover:border-slate-300"
             >
               <p className="text-sm font-semibold uppercase tracking-wide text-cyan">{relatedPost.category}</p>
-              <h3 className="mt-2 text-lg font-semibold text-ink">{relatedPost.title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{relatedPost.description}</p>
+              <h3 className="mt-2 text-lg font-semibold tracking-[-0.02em] text-ink">{relatedPost.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{relatedPost.description}</p>
             </Link>
           ))}
         </div>

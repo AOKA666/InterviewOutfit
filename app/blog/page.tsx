@@ -83,82 +83,93 @@ export default function BlogIndexPage() {
   };
 
   return (
-    <main className="mx-auto w-full max-w-6xl space-y-10 px-4 py-12 md:px-6 md:py-16">
+    <main className="mx-auto w-full max-w-7xl space-y-10 px-4 py-12 md:px-6 md:py-16 lg:space-y-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
-      <section className="grid items-center gap-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:grid-cols-[1.1fr_0.9fr] md:p-10">
-        <div>
-          <h1 className="text-4xl font-bold text-ink md:text-5xl">Interview Outfit Blog</h1>
-          <p className="mt-4 max-w-3xl text-slate-600">
-            Browse practical interview outfit guides for business casual, formal, startup, and tech
-            interview situations. This blog is built for candidates who want clear answers to what to
-            wear to a job interview, how to match company culture, and how to avoid common outfit
-            mistakes.
-          </p>
-        </div>
-        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
-          <Image
-            src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=1200&q=80"
-            alt="Professional interview outfit inspiration on a clothing rack"
-            width={1200}
-            height={900}
-            className="h-full w-full object-cover"
-          />
+
+      <section className="surface overflow-hidden rounded-[36px] md:rounded-[40px]">
+        <div className="grid items-center gap-0 lg:grid-cols-[1.02fr_0.98fr]">
+          <div className="p-8 md:p-12 lg:p-16 xl:p-20">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan">Style Library</p>
+            <h1 className="mt-5 text-4xl font-bold tracking-[-0.05em] text-ink md:text-6xl xl:text-7xl">
+              Interview Outfit Blog
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 md:text-xl">
+              Browse practical interview outfit guides for business casual, formal, startup, and tech
+              interview situations. This blog is built for candidates who want clear answers to what to
+              wear to a job interview, how to match company culture, and how to avoid common outfit
+              mistakes.
+            </p>
+          </div>
+          <div className="dark-lux p-6 md:p-8 lg:p-10">
+            <div className="relative z-10 overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+              <Image
+                src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/2.png"
+                alt="Professional interview outfit inspiration on a clothing rack"
+                width={1400}
+                height={1000}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
-        <h2 className="text-2xl font-semibold text-ink">Start here</h2>
-        <p className="mt-3 text-slate-700">
+      <section className="surface rounded-[32px] p-8 md:p-10 lg:p-12">
+        <h2 className="text-2xl font-semibold tracking-[-0.03em] text-ink md:text-3xl">Start here</h2>
+        <p className="mt-3 max-w-4xl text-[15px] leading-7 text-slate-700">
           If you are new to interview prep, begin with the <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">complete guide on what to wear to a job interview</Link>. Then use the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">interview outfit generator</Link> to turn those rules into a practical outfit recommendation.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <Link href="/blog/what-to-wear-to-an-interview" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
-            <h3 className="text-lg font-semibold text-ink">What to Wear to a Job Interview</h3>
-            <p className="mt-2 text-sm text-slate-600">Best first read for searchers comparing interview dress code basics.</p>
+          <Link href="/blog/what-to-wear-to-an-interview" className="soft-card rounded-[24px] p-5 transition hover:-translate-y-0.5 hover:border-slate-300">
+            <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">What to Wear to a Job Interview</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Best first read for searchers comparing interview dress code basics.</p>
           </Link>
-          <Link href="/blog/tech-interview-outfit" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
-            <h3 className="text-lg font-semibold text-ink">Tech Interview Outfit</h3>
-            <p className="mt-2 text-sm text-slate-600">Targets software engineer, startup, and product interview intent.</p>
+          <Link href="/blog/tech-interview-outfit" className="soft-card rounded-[24px] p-5 transition hover:-translate-y-0.5 hover:border-slate-300">
+            <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">Tech Interview Outfit</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Targets software engineer, startup, and product interview intent.</p>
           </Link>
-          <Link href="/blog/business-casual-interview-outfit" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
-            <h3 className="text-lg font-semibold text-ink">Business Casual Interview Outfit</h3>
-            <p className="mt-2 text-sm text-slate-600">Strong high-intent guide for the most common interview dress code.</p>
+          <Link href="/blog/business-casual-interview-outfit" className="soft-card rounded-[24px] p-5 transition hover:-translate-y-0.5 hover:border-slate-300">
+            <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">Business Casual Interview Outfit</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Strong high-intent guide for the most common interview dress code.</p>
           </Link>
-          <Link href="/interview-outfit-generator" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
-            <h3 className="text-lg font-semibold text-ink">Try the Generator</h3>
-            <p className="mt-2 text-sm text-slate-600">Turn the advice into a quick outfit recommendation.</p>
+          <Link href="/interview-outfit-generator" className="soft-card rounded-[24px] p-5 transition hover:-translate-y-0.5 hover:border-slate-300">
+            <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">Try the Generator</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Turn the advice into a quick outfit recommendation.</p>
           </Link>
         </div>
       </section>
 
-      <div className="space-y-8">
+      <div className="space-y-10">
         {categories.map((category) => (
-          <section key={category.title} className="space-y-4">
-            <h2 className="text-2xl font-semibold text-ink">{category.title}</h2>
-            <div className="grid gap-4 md:grid-cols-2">
+          <section key={category.title} className="space-y-5">
+            <div className="flex items-center justify-between gap-4">
+              <h2 className="text-2xl font-semibold tracking-[-0.03em] text-ink md:text-3xl">{category.title}</h2>
+              <div className="hidden h-px flex-1 bg-slate-200 md:block" />
+            </div>
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {category.posts.map((post) => (
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-slate-300"
+                  className="group overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 hover:border-slate-300"
                 >
-                  <div className="aspect-[16/10] overflow-hidden bg-slate-100">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                     <Image
                       src={post.image}
                       alt={post.title}
                       width={1200}
                       height={750}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                     />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/70 to-transparent p-5 text-white">
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">{post.category}</p>
+                    </div>
                   </div>
                   <div className="p-6">
-                    <p className="text-sm font-semibold uppercase tracking-wide text-cyan">
-                      {post.category}
-                    </p>
-                    <h3 className="mt-2 text-xl font-semibold text-ink">{post.title}</h3>
-                    <p className="mt-2 text-slate-600">{post.description}</p>
-                    <p className="mt-3 text-xs text-slate-500">
+                    <h3 className="text-xl font-semibold tracking-[-0.03em] text-ink">{post.title}</h3>
+                    <p className="mt-2 text-[15px] leading-7 text-slate-600">{post.description}</p>
+                    <p className="mt-4 text-xs uppercase tracking-[0.16em] text-slate-400">
                       Updated {formatDate(post.updatedTime ?? post.publishedTime)}
                     </p>
                   </div>
