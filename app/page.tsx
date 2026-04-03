@@ -126,7 +126,7 @@ export default function HomePage() {
             <div className="relative z-10 mx-auto max-w-[520px] overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
               <div className="aspect-[4/5]">
                 <Image
-                  src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/1-v2.png"
+                  src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/1-v3.png"
                   alt="Job candidates reviewing interview outfits before an interview"
                   width={1200}
                   height={1500}
