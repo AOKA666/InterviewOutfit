@@ -88,16 +88,16 @@ export default function HomePage() {
       />
 
       <section className="surface overflow-hidden rounded-[36px] md:rounded-[40px]">
-        <div className="grid items-start gap-0 lg:grid-cols-[1.12fr_0.88fr]">
-          <div className="flex h-full items-start p-8 md:p-12 lg:p-16 xl:p-20">
+        <div className="grid items-start gap-0 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="flex h-full items-start p-8 md:p-12 lg:p-14 xl:p-16">
             <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan">
               Interview Preparation
             </p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-bold leading-[1.02] tracking-[-0.05em] text-ink md:text-6xl xl:text-7xl">
+            <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.02] tracking-[-0.05em] text-ink md:text-6xl xl:text-[5.25rem]">
               Interview Outfit Generator for Smarter Job Interview Style Decisions
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
               Use our free interview outfit generator to decide what to wear to a job interview based on
               industry, dress code, season, and role expectations.
             </p>
@@ -122,9 +122,9 @@ export default function HomePage() {
             </div>
             </div>
           </div>
-          <div className="dark-lux flex h-full items-start justify-center p-8 md:p-12 lg:p-16 xl:p-20">
-            <div className="relative z-10 mx-auto w-full max-w-[620px] overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
-              <div className="flex aspect-[4/5] items-center justify-center bg-slate-950/20 p-1 md:p-2">
+          <div className="dark-lux flex h-full items-start justify-center p-6 md:p-8 lg:p-10 xl:p-12">
+            <div className="relative z-10 mx-auto w-full max-w-[760px] overflow-hidden rounded-[36px] border border-white/10 bg-white/5 shadow-[0_28px_80px_rgba(0,0,0,0.3)] backdrop-blur-xl">
+              <div className="flex aspect-[4/5] items-center justify-center bg-slate-950/20 p-0">
                 <Image
                   src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/1-v3.png"
                   alt="Job candidates reviewing interview outfits before an interview"
