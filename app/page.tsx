@@ -88,8 +88,9 @@ export default function HomePage() {
       />
 
       <section className="surface overflow-hidden rounded-[36px] md:rounded-[40px]">
-        <div className="grid items-center gap-0 lg:grid-cols-[1.12fr_0.88fr]">
-          <div className="p-8 md:p-12 lg:p-16 xl:p-20">
+        <div className="grid items-start gap-0 lg:grid-cols-[1.12fr_0.88fr]">
+          <div className="flex h-full items-start p-8 md:p-12 lg:p-16 xl:p-20">
+            <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan">
               Interview Preparation
             </p>
@@ -119,8 +120,9 @@ export default function HomePage() {
               <span>Role-aware recommendations</span>
               <span>Guides for women, men, and tech interviews</span>
             </div>
+            </div>
           </div>
-          <div className="dark-lux h-full p-6 md:p-8 lg:p-10">
+          <div className="dark-lux flex h-full items-start justify-center p-8 md:p-12 lg:p-16 xl:p-20">
             <div className="relative z-10 mx-auto max-w-[520px] overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
               <div className="aspect-[4/5]">
                 <Image
