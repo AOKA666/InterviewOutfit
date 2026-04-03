@@ -88,7 +88,7 @@ export default function HomePage() {
       />
 
       <section className="surface overflow-hidden rounded-[36px] md:rounded-[40px]">
-        <div className="grid items-center gap-0 lg:grid-cols-[1.08fr_0.92fr]">
+        <div className="grid items-center gap-0 lg:grid-cols-[1.12fr_0.88fr]">
           <div className="p-8 md:p-12 lg:p-16 xl:p-20">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan">
               Interview Preparation
@@ -121,15 +121,17 @@ export default function HomePage() {
             </div>
           </div>
           <div className="dark-lux h-full p-6 md:p-8 lg:p-10">
-            <div className="relative z-10 overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
-              <Image
-                src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/1.png"
-                alt="Job candidates reviewing interview outfits before an interview"
-                width={1200}
-                height={900}
-                className="h-full w-full object-cover"
-                priority
-              />
+            <div className="relative z-10 mx-auto max-w-[520px] overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+              <div className="aspect-[4/5]">
+                <Image
+                  src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/1-v2.png"
+                  alt="Job candidates reviewing interview outfits before an interview"
+                  width={1200}
+                  height={1500}
+                  className="h-full w-full object-cover"
+                  priority
+                />
+              </div>
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent p-6 text-white">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Preview</p>
                 <p className="mt-2 max-w-md text-sm leading-6 text-slate-100">
