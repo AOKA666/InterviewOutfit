@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { absoluteUrl, blogPosts, buildBlogPostingSchema, buildBreadcrumbSchema, buildFaqSchema, pageTitle } from "@/lib/seo";
+import { absoluteUrl, blogPosts, buildBlogPostingSchema, buildBreadcrumbSchema, buildFaqSchema, pageTitle, siteConfig } from "@/lib/seo";
 
 function formatDate(dateString: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -28,13 +29,15 @@ export const metadata: Metadata = {
     description:
       "A complete guide to interview dress code, business casual outfits, formal looks, shoes, seasonal layers, and common mistakes.",
     url: absoluteUrl("/blog/what-to-wear-to-an-interview"),
-    type: "article"
+    type: "article",
+    images: [blogPosts.find((entry) => entry.slug === "what-to-wear-to-an-interview")!.image ?? siteConfig.ogImage]
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle("What to Wear to a Job Interview"),
     description:
-      "A complete guide to interview dress code, business casual outfits, formal looks, shoes, seasonal layers, and common mistakes."
+      "A complete guide to interview dress code, business casual outfits, formal looks, shoes, seasonal layers, and common mistakes.",
+    images: [blogPosts.find((entry) => entry.slug === "what-to-wear-to-an-interview")!.image ?? siteConfig.ogImage]
   }
 };
 
@@ -81,6 +84,16 @@ export default function BlogCompleteGuidePage() {
         What to Wear to a Job Interview (Complete Guide)
       </h1>
       <p className="text-sm text-slate-500">Published {formatDate(post.publishedTime)} · Updated {formatDate(post.updatedTime ?? post.publishedTime)}</p>
+      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
+        <Image
+          src={post.image}
+          alt="Candidates choosing what to wear to a job interview"
+          width={1200}
+          height={800}
+          className="h-full w-full object-cover"
+          priority
+        />
+      </div>
       <h2 className="text-2xl font-semibold text-slate-800">How to Choose an Interview Outfit</h2>
       <p className="text-slate-700">
         The fastest way to decide what to wear to an interview is to answer four questions. What

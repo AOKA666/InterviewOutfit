@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import OutfitGenerator from "@/components/OutfitGenerator";
 import { absoluteUrl, buildBreadcrumbSchema, buildFaqSchema, pageTitle, siteConfig } from "@/lib/seo";
@@ -22,13 +23,15 @@ export const metadata: Metadata = {
     description:
       "Get a practical job interview outfit recommendation for business formal, business casual, startup, and tech interview settings.",
     url: absoluteUrl("/interview-outfit-generator"),
-    type: "website"
+    type: "website",
+    images: [siteConfig.ogImage]
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle("Interview Outfit Generator"),
     description:
-      "Get a practical job interview outfit recommendation for business formal, business casual, startup, and tech interview settings."
+      "Get a practical job interview outfit recommendation for business formal, business casual, startup, and tech interview settings.",
+    images: [siteConfig.ogImage]
   }
 };
 
@@ -102,20 +105,31 @@ export default function GeneratorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="rounded-3xl border border-slate-200 bg-white/90 p-8 shadow-sm md:p-12">
-        <h1 className="text-4xl font-bold leading-tight text-ink md:text-5xl">
-          Free Interview Outfit Generator for Job Interview Outfit Ideas
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg text-slate-600">
-          Find the best interview outfit for business formal, business casual, startup, and tech
-          interview settings in seconds.
-        </p>
-        <a
-          href="#generator"
-          className="mt-7 inline-block rounded-xl bg-coral px-5 py-3 text-sm font-semibold text-white hover:opacity-90"
-        >
-          Try the Generator
-        </a>
+      <section className="grid items-center gap-8 rounded-3xl border border-slate-200 bg-white/90 p-8 shadow-sm md:grid-cols-[1.1fr_0.9fr] md:p-12">
+        <div>
+          <h1 className="text-4xl font-bold leading-tight text-ink md:text-5xl">
+            Free Interview Outfit Generator for Job Interview Outfit Ideas
+          </h1>
+          <p className="mt-4 max-w-3xl text-lg text-slate-600">
+            Find the best interview outfit for business formal, business casual, startup, and tech
+            interview settings in seconds.
+          </p>
+          <a
+            href="#generator"
+            className="mt-7 inline-block rounded-xl bg-coral px-5 py-3 text-sm font-semibold text-white hover:opacity-90"
+          >
+            Try the Generator
+          </a>
+        </div>
+        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
+          <Image
+            src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80"
+            alt="Professional interview outfit planning before a job interview"
+            width={1200}
+            height={900}
+            className="h-full w-full object-cover"
+          />
+        </div>
       </section>
 
       <OutfitGenerator />

@@ -4,7 +4,8 @@ export const siteConfig = {
   description:
     "Interview outfit ideas, job interview style guides, and a free interview outfit generator for business formal, business casual, and tech interviews.",
   url: "https://www.outfitguide.online",
-  ogImage: "/og-image.png"
+  ogImage:
+    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
 };
 
 export const blogPosts = [
@@ -14,6 +15,8 @@ export const blogPosts = [
     description:
       "A practical guide to interview outfit women ideas, business casual formulas, formal looks, shoes, layering, and common interview style mistakes.",
     category: "By audience",
+    image:
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
     publishedTime: "2026-03-20T00:00:00.000Z",
     updatedTime: "2026-03-28T00:00:00.000Z"
   },
@@ -23,6 +26,8 @@ export const blogPosts = [
     description:
       "Reliable interview outfit men combinations for finance, consulting, startup, and business casual interviews, with shoe, fit, and color advice.",
     category: "By audience",
+    image:
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
     publishedTime: "2026-03-20T00:00:00.000Z",
     updatedTime: "2026-03-28T00:00:00.000Z"
   },
@@ -32,6 +37,8 @@ export const blogPosts = [
     description:
       "Learn what to wear to a job interview with practical advice on dress code, color palette, shoes, seasonal layers, and interview outfit mistakes.",
     category: "Fundamentals",
+    image:
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
     publishedTime: "2026-03-20T00:00:00.000Z",
     updatedTime: "2026-03-28T00:00:00.000Z"
   },
@@ -41,6 +48,8 @@ export const blogPosts = [
     description:
       "Tech interview outfit guidance for software engineers, product managers, designers, and startup candidates who want a polished but natural look.",
     category: "By industry",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
     publishedTime: "2026-03-20T00:00:00.000Z",
     updatedTime: "2026-03-28T00:00:00.000Z"
   }
@@ -48,6 +57,10 @@ export const blogPosts = [
 
 export function absoluteUrl(path = "/") {
   return new URL(path, siteConfig.url).toString();
+}
+
+export function getPostBySlug(slug: string) {
+  return blogPosts.find((post) => post.slug === slug);
 }
 
 export function pageTitle(title: string) {

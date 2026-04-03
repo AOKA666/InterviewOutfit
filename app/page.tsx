@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { absoluteUrl, buildBreadcrumbSchema, buildFaqSchema, pageTitle, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: pageTitle("What to Wear to an Interview"),
+  title: pageTitle("Interview Outfit Generator"),
   description:
     "Use the free interview outfit generator to choose what to wear to a job interview and get practical interview outfit guides.",
   keywords: [
@@ -19,17 +20,19 @@ export const metadata: Metadata = {
     canonical: "/"
   },
   openGraph: {
-    title: pageTitle("What to Wear to an Interview"),
+    title: pageTitle("Interview Outfit Generator"),
     description:
       "Choose the right job interview outfit faster with a free tool, practical style advice, and detailed interview outfit guides.",
     url: absoluteUrl("/"),
-    type: "website"
+    type: "website",
+    images: [siteConfig.ogImage]
   },
   twitter: {
     card: "summary_large_image",
-    title: pageTitle("What to Wear to an Interview"),
+    title: pageTitle("Interview Outfit Generator"),
     description:
-      "Choose the right job interview outfit faster with a free tool, practical style advice, and detailed interview outfit guides."
+      "Choose the right job interview outfit faster with a free tool, practical style advice, and detailed interview outfit guides.",
+    images: [siteConfig.ogImage]
   }
 };
 
@@ -84,30 +87,42 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <section className="rounded-3xl border border-slate-200 bg-white/85 p-8 shadow-sm md:p-12">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan">
-          Interview Preparation
-        </p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight text-ink md:text-5xl">
-          Interview Outfit Generator for Smarter Job Interview Style Decisions
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg text-slate-600">
-          Use our free interview outfit generator to decide what to wear to a job interview based on
-          industry, dress code, season, and role expectations.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/interview-outfit-generator"
-            className="rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
-          >
-            Try the Generator
-          </Link>
-          <Link
-            href="/blog"
-            className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            Read Style Guides
-          </Link>
+      <section className="grid items-center gap-8 rounded-3xl border border-slate-200 bg-white/85 p-8 shadow-sm md:grid-cols-[1.2fr_0.8fr] md:p-12">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan">
+            Interview Preparation
+          </p>
+          <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight text-ink md:text-5xl">
+            Interview Outfit Generator for Smarter Job Interview Style Decisions
+          </h1>
+          <p className="mt-4 max-w-3xl text-lg text-slate-600">
+            Use our free interview outfit generator to decide what to wear to a job interview based on
+            industry, dress code, season, and role expectations.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/interview-outfit-generator"
+              className="rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+            >
+              Try the Generator
+            </Link>
+            <Link
+              href="/blog"
+              className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >
+              Read Style Guides
+            </Link>
+          </div>
+        </div>
+        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
+          <Image
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+            alt="Job candidates reviewing interview outfits before an interview"
+            width={1200}
+            height={900}
+            className="h-full w-full object-cover"
+            priority
+          />
         </div>
       </section>
 

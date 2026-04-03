@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { absoluteUrl, blogPosts, buildBlogPostingSchema, buildBreadcrumbSchema, buildFaqSchema, pageTitle } from "@/lib/seo";
+import { absoluteUrl, blogPosts, buildBlogPostingSchema, buildBreadcrumbSchema, buildFaqSchema, pageTitle, siteConfig } from "@/lib/seo";
 
 function formatDate(dateString: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -28,13 +29,15 @@ export const metadata: Metadata = {
     description:
       "Learn what men should wear to a job interview across formal, business casual, startup, and tech settings.",
     url: absoluteUrl("/blog/interview-outfit-men"),
-    type: "article"
+    type: "article",
+    images: [blogPosts.find((entry) => entry.slug === "interview-outfit-men")!.image ?? siteConfig.ogImage]
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle("Best Interview Outfits for Men"),
     description:
-      "Learn what men should wear to a job interview across formal, business casual, startup, and tech settings."
+      "Learn what men should wear to a job interview across formal, business casual, startup, and tech settings.",
+    images: [blogPosts.find((entry) => entry.slug === "interview-outfit-men")!.image ?? siteConfig.ogImage]
   }
 };
 
@@ -79,6 +82,16 @@ export default function BlogMenPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <h1 className="text-4xl font-bold text-ink">Best Interview Outfits for Men</h1>
       <p className="text-sm text-slate-500">Published {formatDate(post.publishedTime)} · Updated {formatDate(post.updatedTime ?? post.publishedTime)}</p>
+      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
+        <Image
+          src={post.image}
+          alt="Professional interview outfit inspiration for men"
+          width={1200}
+          height={800}
+          className="h-full w-full object-cover"
+          priority
+        />
+      </div>
       <h2 className="text-2xl font-semibold text-slate-800">How to Choose an Interview Outfit</h2>
       <p className="text-slate-700">
         A strong interview outfit for men should match company expectations while staying simple and
