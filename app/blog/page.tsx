@@ -42,20 +42,21 @@ export const metadata: Metadata = {
   }
 };
 
-const categories = [
-  {
-    title: "Fundamentals",
-    posts: blogPosts.filter((post) => post.category === "Fundamentals")
-  },
-  {
-    title: "By audience",
-    posts: blogPosts.filter((post) => post.category === "By audience")
-  },
-  {
-    title: "By industry",
-    posts: blogPosts.filter((post) => post.category === "By industry")
-  }
+const categoryOrder = [
+  "Fundamentals",
+  "By audience",
+  "By industry",
+  "By dress code",
+  "By season",
+  "Accessories"
 ];
+
+const categories = categoryOrder
+  .map((title) => ({
+    title,
+    posts: blogPosts.filter((post) => post.category === title)
+  }))
+  .filter((category) => category.posts.length > 0);
 
 export default function BlogIndexPage() {
   const breadcrumbSchema = buildBreadcrumbSchema([
@@ -111,7 +112,7 @@ export default function BlogIndexPage() {
         <p className="mt-3 text-slate-700">
           If you are new to interview prep, begin with the <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">complete guide on what to wear to a job interview</Link>. Then use the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">interview outfit generator</Link> to turn those rules into a practical outfit recommendation.
         </p>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <Link href="/blog/what-to-wear-to-an-interview" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
             <h3 className="text-lg font-semibold text-ink">What to Wear to a Job Interview</h3>
             <p className="mt-2 text-sm text-slate-600">Best first read for searchers comparing interview dress code basics.</p>
@@ -119,6 +120,10 @@ export default function BlogIndexPage() {
           <Link href="/blog/tech-interview-outfit" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
             <h3 className="text-lg font-semibold text-ink">Tech Interview Outfit</h3>
             <p className="mt-2 text-sm text-slate-600">Targets software engineer, startup, and product interview intent.</p>
+          </Link>
+          <Link href="/blog/business-casual-interview-outfit" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
+            <h3 className="text-lg font-semibold text-ink">Business Casual Interview Outfit</h3>
+            <p className="mt-2 text-sm text-slate-600">Strong high-intent guide for the most common interview dress code.</p>
           </Link>
           <Link href="/interview-outfit-generator" className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300">
             <h3 className="text-lg font-semibold text-ink">Try the Generator</h3>
