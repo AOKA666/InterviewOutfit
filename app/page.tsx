@@ -132,8 +132,8 @@ export default function HomePage() {
               priority
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent p-6 text-white md:p-8 lg:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Preview</p>
-              <p className="mt-2 max-w-md text-sm leading-6 text-slate-100">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan">Preview</p>
+              <p className="mt-3 max-w-lg text-base leading-7 text-slate-100 md:text-lg md:leading-8">
                 Build a safer interview look faster, then refine it with role-specific guides.
               </p>
             </div>
