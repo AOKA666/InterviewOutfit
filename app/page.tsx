@@ -123,7 +123,7 @@ export default function HomePage() {
           <div className="dark-lux h-full p-6 md:p-8 lg:p-10">
             <div className="relative z-10 overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
               <Image
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+                src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/1.png"
                 alt="Job candidates reviewing interview outfits before an interview"
                 width={1200}
                 height={900}
@@ -166,10 +166,12 @@ export default function HomePage() {
       </section>
 
       <section className="surface rounded-[32px] p-8 md:p-10 lg:p-12">
-        <div className="max-w-3xl">
-          <h2 className="text-3xl font-semibold tracking-[-0.04em] text-ink md:text-4xl">How It Works</h2>
-        </div>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div>
+            <div className="max-w-3xl">
+              <h2 className="text-3xl font-semibold tracking-[-0.04em] text-ink md:text-4xl">How It Works</h2>
+            </div>
+            <div className="mt-8 grid gap-6 md:grid-cols-3 lg:grid-cols-1">
           <div className="rounded-[24px] bg-white/70 p-5">
             <p className="text-sm font-semibold uppercase tracking-wide text-cyan">Step 1</p>
             <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-slate-800">Choose your interview context</h3>
@@ -193,6 +195,17 @@ export default function HomePage() {
               Use the linked articles to refine details like shoes, colors, layering, and industry
               calibration before interview day.
             </p>
+          </div>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-slate-100 shadow-sm">
+            <Image
+              src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/2.png"
+              alt="Interview outfit flat lay with blazer, shirt, trousers, shoes, and bag"
+              width={1400}
+              height={1000}
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>

@@ -1,11 +1,13 @@
+const r2Base = "https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images";
+const r2Image = (index: number) => `${r2Base}/${index}.png`;
+
 export const siteConfig = {
   name: "Interview Outfit",
   title: "Interview Outfit Generator",
   description:
     "Interview outfit ideas, job interview style guides, and a free interview outfit generator for business formal, business casual, and tech interviews.",
   url: "https://www.outfitguide.online",
-  ogImage:
-    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
+  ogImage: r2Image(1)
 };
 
 type BlogSection = {
@@ -38,8 +40,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "A practical guide to interview outfit women ideas, business casual formulas, formal looks, shoes, layering, and common interview style mistakes.",
     category: "By audience",
-    image:
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(11),
     publishedTime: "2026-03-20T00:00:00.000Z",
     updatedTime: "2026-03-28T00:00:00.000Z"
   },
@@ -49,8 +50,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Reliable interview outfit men combinations for finance, consulting, startup, and business casual interviews, with shoe, fit, and color advice.",
     category: "By audience",
-    image:
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(12),
     publishedTime: "2026-03-20T00:00:00.000Z",
     updatedTime: "2026-03-28T00:00:00.000Z"
   },
@@ -60,8 +60,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Learn what to wear to a job interview with practical advice on dress code, color palette, shoes, seasonal layers, and interview outfit mistakes.",
     category: "Fundamentals",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(10),
     publishedTime: "2026-03-20T00:00:00.000Z",
     updatedTime: "2026-03-28T00:00:00.000Z"
   },
@@ -71,8 +70,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Tech interview outfit guidance for software engineers, product managers, designers, and startup candidates who want a polished but natural look.",
     category: "By industry",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(13),
     publishedTime: "2026-03-20T00:00:00.000Z",
     updatedTime: "2026-03-28T00:00:00.000Z"
   },
@@ -82,8 +80,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Learn how to build a safe business casual interview outfit with practical advice on blazers, shirts, shoes, fit, and dress code balance.",
     category: "By dress code",
-    image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(14),
     publishedTime: "2026-04-03T00:00:00.000Z",
     updatedTime: "2026-04-03T00:00:00.000Z",
     intro:
@@ -123,8 +120,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Startup interview outfit advice for candidates who want to look polished, adaptable, and aligned with startup culture without overdressing.",
     category: "By industry",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(15),
     publishedTime: "2026-04-03T00:00:00.000Z",
     updatedTime: "2026-04-03T00:00:00.000Z",
     intro:
@@ -164,8 +160,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Summer interview outfit advice with breathable fabrics, heat-friendly layering, and practical ways to stay polished in hot weather.",
     category: "By season",
-    image:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(17),
     publishedTime: "2026-04-03T00:00:00.000Z",
     updatedTime: "2026-04-03T00:00:00.000Z",
     intro:
@@ -205,8 +200,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Winter interview outfit ideas with layering advice, coat choices, and practical ways to stay warm without looking bulky or overdone.",
     category: "By season",
-    image:
-      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(18),
     publishedTime: "2026-04-03T00:00:00.000Z",
     updatedTime: "2026-04-03T00:00:00.000Z",
     intro:
@@ -246,8 +240,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Learn which interview shoes are safest for business formal, business casual, startup, and tech interview settings for women and men.",
     category: "Accessories",
-    image:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(19),
     publishedTime: "2026-04-03T00:00:00.000Z",
     updatedTime: "2026-04-03T00:00:00.000Z",
     intro:
@@ -287,8 +280,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Find out when jeans can work for an interview, when they fail, and how to style them safely for startup or casual office settings.",
     category: "Fundamentals",
-    image:
-      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(20),
     publishedTime: "2026-04-03T00:00:00.000Z",
     updatedTime: "2026-04-03T00:00:00.000Z",
     intro:
@@ -328,8 +320,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Finance interview outfit advice for candidates who need to look polished, conservative, and credible in banking, consulting, and corporate finance settings.",
     category: "By industry",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+    image: r2Image(16),
     publishedTime: "2026-04-03T00:00:00.000Z",
     updatedTime: "2026-04-03T00:00:00.000Z",
     intro:

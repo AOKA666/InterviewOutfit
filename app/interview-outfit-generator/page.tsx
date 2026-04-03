@@ -126,7 +126,7 @@ export default function GeneratorPage() {
           <div className="dark-lux p-6 md:p-8 lg:p-10">
             <div className="relative z-10 overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
               <Image
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80"
+                src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/4.png"
                 alt="Professional interview outfit planning before a job interview"
                 width={1200}
                 height={900}
