@@ -33,8 +33,9 @@ export function generateStaticParams() {
     .map((post) => ({ slug: post.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post || !post.sections || !post.faq) {
     return {};
@@ -162,8 +163,9 @@ const toolLinkMap: Record<string, { href: string; label: string; description: st
   }
 };
 
-export default function BlogDynamicArticlePage({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogDynamicArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post || !post.sections || !post.faq) {
     return null;
