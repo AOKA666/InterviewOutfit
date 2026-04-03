@@ -122,24 +122,20 @@ export default function HomePage() {
             </div>
             </div>
           </div>
-          <div className="dark-lux flex h-full items-start justify-center p-2 md:p-4 lg:p-6 xl:p-8">
-            <div className="relative z-10 mx-auto w-full max-w-[860px]">
-              <div className="flex aspect-[4/5] items-center justify-center p-0">
-                <Image
-                  src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/1-v3.png"
-                  alt="Job candidates reviewing interview outfits before an interview"
-                  width={1200}
-                  height={1500}
-                  className="h-full w-full object-contain"
-                  priority
-                />
-              </div>
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent p-6 text-white">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Preview</p>
-                <p className="mt-2 max-w-md text-sm leading-6 text-slate-100">
-                  Build a safer interview look faster, then refine it with role-specific guides.
-                </p>
-              </div>
+          <div className="dark-lux relative min-h-[640px] overflow-hidden">
+            <Image
+              src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/1-v3.png"
+              alt="Job candidates reviewing interview outfits before an interview"
+              width={1200}
+              height={1500}
+              className="h-full w-full object-cover"
+              priority
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent p-6 text-white md:p-8 lg:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Preview</p>
+              <p className="mt-2 max-w-md text-sm leading-6 text-slate-100">
+                Build a safer interview look faster, then refine it with role-specific guides.
+              </p>
             </div>
           </div>
         </div>
