@@ -124,13 +124,13 @@ export default function HomePage() {
           </div>
           <div className="dark-lux flex h-full items-start justify-center p-8 md:p-12 lg:p-16 xl:p-20">
             <div className="relative z-10 mx-auto max-w-[520px] overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
-              <div className="aspect-[4/5]">
+              <div className="flex aspect-[4/5] items-center justify-center bg-slate-950/20 p-4">
                 <Image
                   src="https://pub-09df3a032e66443f9e06ccae6bfee83b.r2.dev/web_images/1-v3.png"
                   alt="Job candidates reviewing interview outfits before an interview"
                   width={1200}
                   height={1500}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                   priority
                 />
               </div>
