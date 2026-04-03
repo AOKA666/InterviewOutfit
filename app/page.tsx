@@ -73,7 +73,7 @@ export default function HomePage() {
   const faqSchema = buildFaqSchema(faqItems);
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-20 md:px-6">
+    <main className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 py-16 md:px-6 lg:gap-12 lg:py-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
@@ -87,92 +87,109 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <section className="grid items-center gap-8 rounded-3xl border border-slate-200 bg-white/85 p-8 shadow-sm md:grid-cols-[1.2fr_0.8fr] md:p-12">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan">
-            Interview Preparation
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight text-ink md:text-5xl">
-            Interview Outfit Generator for Smarter Job Interview Style Decisions
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg text-slate-600">
-            Use our free interview outfit generator to decide what to wear to a job interview based on
-            industry, dress code, season, and role expectations.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/interview-outfit-generator"
-              className="rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
-            >
-              Try the Generator
-            </Link>
-            <Link
-              href="/blog"
-              className="rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-            >
-              Read Style Guides
-            </Link>
+      <section className="surface overflow-hidden rounded-[36px] md:rounded-[40px]">
+        <div className="grid items-center gap-0 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="p-8 md:p-12 lg:p-16 xl:p-20">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan">
+              Interview Preparation
+            </p>
+            <h1 className="mt-5 max-w-4xl text-4xl font-bold leading-[1.02] tracking-[-0.05em] text-ink md:text-6xl xl:text-7xl">
+              Interview Outfit Generator for Smarter Job Interview Style Decisions
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 md:text-xl">
+              Use our free interview outfit generator to decide what to wear to a job interview based on
+              industry, dress code, season, and role expectations.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/interview-outfit-generator"
+                className="rounded-2xl bg-ink px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(15,23,42,0.16)] transition hover:-translate-y-0.5 hover:bg-slate-800"
+              >
+                Try the Generator
+              </Link>
+              <Link
+                href="/blog"
+                className="rounded-2xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+              >
+                Read Style Guides
+              </Link>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
+              <span>Practical outfit logic</span>
+              <span>Role-aware recommendations</span>
+              <span>Guides for women, men, and tech interviews</span>
+            </div>
           </div>
-        </div>
-        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
-          <Image
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
-            alt="Job candidates reviewing interview outfits before an interview"
-            width={1200}
-            height={900}
-            className="h-full w-full object-cover"
-            priority
-          />
+          <div className="dark-lux h-full p-6 md:p-8 lg:p-10">
+            <div className="relative z-10 overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+              <Image
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+                alt="Job candidates reviewing interview outfits before an interview"
+                width={1200}
+                height={900}
+                className="h-full w-full object-cover"
+                priority
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent p-6 text-white">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Preview</p>
+                <p className="mt-2 max-w-md text-sm leading-6 text-slate-100">
+                  Build a safer interview look faster, then refine it with role-specific guides.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="grid gap-5 md:grid-cols-3">
-        <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-ink">Practical, low-risk outfit advice</h2>
-          <p className="mt-3 text-slate-700">
+        <article className="soft-card rounded-[28px] p-6 md:p-7">
+          <h2 className="text-xl font-semibold tracking-[-0.03em] text-ink">Practical, low-risk outfit advice</h2>
+          <p className="mt-3 text-[15px] leading-7 text-slate-700">
             Instead of generic fashion inspiration, Interview Outfit focuses on job interview clothing
             decisions that help candidates look polished, credible, and aligned with company culture.
           </p>
         </article>
-        <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-ink">Built for real interview scenarios</h2>
-          <p className="mt-3 text-slate-700">
+        <article className="soft-card rounded-[28px] p-6 md:p-7">
+          <h2 className="text-xl font-semibold tracking-[-0.03em] text-ink">Built for real interview scenarios</h2>
+          <p className="mt-3 text-[15px] leading-7 text-slate-700">
             We cover business formal, business casual, startup interviews, seasonal adjustments,
             camera-friendly looks, and industry-specific expectations from tech to consulting.
           </p>
         </article>
-        <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-ink">Tool + content working together</h2>
-          <p className="mt-3 text-slate-700">
+        <article className="soft-card rounded-[28px] p-6 md:p-7">
+          <h2 className="text-xl font-semibold tracking-[-0.03em] text-ink">Tool + content working together</h2>
+          <p className="mt-3 text-[15px] leading-7 text-slate-700">
             The generator gives instant outfit recommendations, while the blog library explains why a
             look works, what mistakes to avoid, and how to adapt the same formula for your interview.
           </p>
         </article>
       </section>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
-        <h2 className="text-3xl font-semibold text-ink">How It Works</h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div>
+      <section className="surface rounded-[32px] p-8 md:p-10 lg:p-12">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl font-semibold tracking-[-0.04em] text-ink md:text-4xl">How It Works</h2>
+        </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="rounded-[24px] bg-white/70 p-5">
             <p className="text-sm font-semibold uppercase tracking-wide text-cyan">Step 1</p>
-            <h3 className="mt-2 text-xl font-semibold text-slate-800">Choose your interview context</h3>
-            <p className="mt-2 text-slate-700">
+            <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-slate-800">Choose your interview context</h3>
+            <p className="mt-2 text-[15px] leading-7 text-slate-700">
               Start with industry, gender preference, dress code expectations, and season. These four
               inputs do most of the work.
             </p>
           </div>
-          <div>
+          <div className="rounded-[24px] bg-white/70 p-5">
             <p className="text-sm font-semibold uppercase tracking-wide text-cyan">Step 2</p>
-            <h3 className="mt-2 text-xl font-semibold text-slate-800">Get a recommended outfit</h3>
-            <p className="mt-2 text-slate-700">
+            <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-slate-800">Get a recommended outfit</h3>
+            <p className="mt-2 text-[15px] leading-7 text-slate-700">
               The tool suggests a clean, interview-safe outfit formula with reasoning so you know why
               the recommendation fits your role.
             </p>
           </div>
-          <div>
+          <div className="rounded-[24px] bg-white/70 p-5">
             <p className="text-sm font-semibold uppercase tracking-wide text-cyan">Step 3</p>
-            <h3 className="mt-2 text-xl font-semibold text-slate-800">Go deeper with guides</h3>
-            <p className="mt-2 text-slate-700">
+            <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-slate-800">Go deeper with guides</h3>
+            <p className="mt-2 text-[15px] leading-7 text-slate-700">
               Use the linked articles to refine details like shoes, colors, layering, and industry
               calibration before interview day.
             </p>
@@ -180,9 +197,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
-        <h2 className="text-3xl font-semibold text-ink">How to choose the right interview outfit</h2>
-        <div className="mt-5 space-y-4 text-slate-700">
+      <section className="surface rounded-[32px] p-8 md:p-10 lg:p-12 editorial-prose">
+        <h2 className="text-3xl font-semibold tracking-[-0.04em] text-ink md:text-4xl">How to choose the right interview outfit</h2>
+        <div className="mt-6 max-w-4xl space-y-5 text-[17px] text-slate-700">
           <p>
             Most interview outfit decisions come down to four things: industry, company culture, dress code, and season. If you get those four right, you usually avoid the two biggest mistakes candidates make — looking underdressed or looking disconnected from the company environment.
           </p>
@@ -202,22 +219,22 @@ export default function HomePage() {
       </section>
 
       <section className="grid gap-5 md:grid-cols-2">
-        <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-semibold text-ink">Start with the tool</h2>
-          <p className="mt-3 text-slate-700">
+        <article className="soft-card rounded-[28px] p-6 md:p-7">
+          <h2 className="text-2xl font-semibold tracking-[-0.03em] text-ink">Start with the tool</h2>
+          <p className="mt-3 text-[15px] leading-7 text-slate-700">
             Get an instant recommendation for business formal, business casual, or startup-friendly
             interview outfits.
           </p>
           <Link
             href="/interview-outfit-generator"
-            className="mt-5 inline-block rounded-xl bg-coral px-5 py-3 text-sm font-semibold text-white hover:opacity-90"
+            className="mt-5 inline-block rounded-2xl bg-coral px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(251,113,133,0.22)] transition hover:-translate-y-0.5 hover:opacity-90"
           >
             Open the Interview Outfit Generator
           </Link>
         </article>
-        <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl font-semibold text-ink">Read the best guides</h2>
-          <ul className="mt-3 space-y-2 text-slate-700">
+        <article className="soft-card rounded-[28px] p-6 md:p-7">
+          <h2 className="text-2xl font-semibold tracking-[-0.03em] text-ink">Read the best guides</h2>
+          <ul className="mt-3 space-y-2 text-[15px] leading-7 text-slate-700">
             <li>
               <Link href="/blog/what-to-wear-to-an-interview" className="text-cyan underline-offset-4 hover:underline">
                 What to Wear to a Job Interview
@@ -242,13 +259,13 @@ export default function HomePage() {
         </article>
       </section>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
-        <h2 className="text-3xl font-semibold text-ink">Interview Outfit FAQ</h2>
-        <div className="mt-6 space-y-5">
+      <section className="surface rounded-[32px] p-8 md:p-10 lg:p-12">
+        <h2 className="text-3xl font-semibold tracking-[-0.04em] text-ink md:text-4xl">Interview Outfit FAQ</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
           {faqItems.map((item) => (
-            <div key={item.question}>
-              <h3 className="text-lg font-semibold text-slate-800">{item.question}</h3>
-              <p className="mt-2 text-slate-700">{item.answer}</p>
+            <div key={item.question} className="rounded-[24px] bg-white/72 p-5">
+              <h3 className="text-lg font-semibold tracking-[-0.02em] text-slate-800">{item.question}</h3>
+              <p className="mt-3 text-[15px] leading-7 text-slate-700">{item.answer}</p>
             </div>
           ))}
         </div>

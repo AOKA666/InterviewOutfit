@@ -100,101 +100,116 @@ export default function GeneratorPage() {
   };
 
   return (
-    <main className="mx-auto w-full max-w-6xl space-y-10 px-4 py-12 md:px-6 md:py-16">
+    <main className="mx-auto w-full max-w-7xl space-y-10 px-4 py-12 md:px-6 md:py-16 lg:space-y-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="grid items-center gap-8 rounded-3xl border border-slate-200 bg-white/90 p-8 shadow-sm md:grid-cols-[1.1fr_0.9fr] md:p-12">
-        <div>
-          <h1 className="text-4xl font-bold leading-tight text-ink md:text-5xl">
-            Free Interview Outfit Generator for Job Interview Outfit Ideas
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg text-slate-600">
-            Find the best interview outfit for business formal, business casual, startup, and tech
-            interview settings in seconds.
-          </p>
-          <a
-            href="#generator"
-            className="mt-7 inline-block rounded-xl bg-coral px-5 py-3 text-sm font-semibold text-white hover:opacity-90"
-          >
-            Try the Generator
-          </a>
-        </div>
-        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100">
-          <Image
-            src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80"
-            alt="Professional interview outfit planning before a job interview"
-            width={1200}
-            height={900}
-            className="h-full w-full object-cover"
-          />
+      <section className="surface overflow-hidden rounded-[36px] md:rounded-[40px]">
+        <div className="grid items-center lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="p-8 md:p-12 lg:p-16 xl:p-20">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-coral">Interactive Tool</p>
+            <h1 className="mt-5 text-4xl font-bold leading-[1.03] tracking-[-0.05em] text-ink md:text-6xl xl:text-7xl">
+              Free Interview Outfit Generator for Job Interview Outfit Ideas
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 md:text-xl">
+              Find the best interview outfit for business formal, business casual, startup, and tech
+              interview settings in seconds.
+            </p>
+            <a
+              href="#generator"
+              className="mt-8 inline-block rounded-2xl bg-coral px-6 py-3.5 text-sm font-semibold text-white shadow-[0_16px_35px_rgba(251,113,133,0.22)] transition hover:-translate-y-0.5 hover:opacity-90"
+            >
+              Try the Generator
+            </a>
+          </div>
+          <div className="dark-lux p-6 md:p-8 lg:p-10">
+            <div className="relative z-10 overflow-hidden rounded-[30px] border border-white/10 bg-white/5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+              <Image
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80"
+                alt="Professional interview outfit planning before a job interview"
+                width={1200}
+                height={900}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-950/35 to-transparent p-6 text-white">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-coral">Tool preview</p>
+                <p className="mt-2 max-w-md text-sm leading-6 text-slate-100">
+                  Use role, industry, season, and dress code to get a safer interview outfit recommendation.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <OutfitGenerator />
 
-      <section className="space-y-5 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-        <h2 className="text-3xl font-semibold text-ink">How to Choose an Interview Outfit</h2>
-        <h3 className="text-xl font-semibold text-slate-800">
+      <section className="surface rounded-[32px] p-6 md:p-8 lg:p-10 editorial-prose">
+        <h2 className="text-3xl font-semibold tracking-[-0.04em] text-ink md:text-4xl">How to Choose an Interview Outfit</h2>
+        <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-800">
           What to Wear to a Job Interview Without Overthinking It
         </h3>
-        <p className="text-slate-700">
-          Choosing an interview outfit is not only about fashion. It is about showing respect for the
-          opportunity, understanding the company culture, and making it easy for the interviewer to
-          focus on your skills. Candidates often search for phrases like interview outfit women,
-          interview outfit men, business casual interview outfit, and what to wear to an interview
-          because they want practical, low-risk guidance. The best strategy is to use a framework:
-          start with the role and industry, match the expected formality, then adapt for season and
-          comfort.
-        </p>
-        <p className="text-slate-700">
-          A strong interview outfit usually has three qualities: clean lines, proper fit, and
-          consistency. Clean lines mean your top and bottom are structured and not wrinkled. Proper fit
-          means nothing is overly tight, baggy, or hard to move in. Consistency means your shoes,
-          accessories, and bag follow the same level of formality. For example, if you wear a blazer
-          and tailored trousers, pair them with polished loafers or oxfords rather than athletic
-          sneakers.
-        </p>
-        <p className="text-slate-700">
-          Industry matters. Finance, law, and consulting usually favor business formal looks. That can
-          include a suit, dress shirt or blouse, conservative shoes, and minimal accessories. Tech and
-          startup environments often accept business casual, and in some companies a polished casual
-          look is acceptable for technical interviews. Marketing sits in the middle: creative but still
-          professional. If you are unsure, business casual is usually the safest default.
-        </p>
-        <p className="text-slate-700">
-          The purpose of an interview outfit generator is to turn this strategy into quick action.
-          Instead of reading dozens of conflicting posts, you enter your gender preference, industry,
-          formality target, and season, then receive a practical outfit recommendation with a short
-          explanation. If you want deeper guidance, continue with the <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">complete interview outfit guide</Link> or the <Link href="/blog/tech-interview-outfit" className="font-semibold text-cyan underline-offset-4 hover:underline">tech interview outfit guide</Link>.
-        </p>
+        <div className="space-y-5 text-[17px] text-slate-700">
+          <p>
+            Choosing an interview outfit is not only about fashion. It is about showing respect for the
+            opportunity, understanding the company culture, and making it easy for the interviewer to
+            focus on your skills. Candidates often search for phrases like interview outfit women,
+            interview outfit men, business casual interview outfit, and what to wear to an interview
+            because they want practical, low-risk guidance. The best strategy is to use a framework:
+            start with the role and industry, match the expected formality, then adapt for season and
+            comfort.
+          </p>
+          <p>
+            A strong interview outfit usually has three qualities: clean lines, proper fit, and
+            consistency. Clean lines mean your top and bottom are structured and not wrinkled. Proper fit
+            means nothing is overly tight, baggy, or hard to move in. Consistency means your shoes,
+            accessories, and bag follow the same level of formality. For example, if you wear a blazer
+            and tailored trousers, pair them with polished loafers or oxfords rather than athletic
+            sneakers.
+          </p>
+          <p>
+            Industry matters. Finance, law, and consulting usually favor business formal looks. That can
+            include a suit, dress shirt or blouse, conservative shoes, and minimal accessories. Tech and
+            startup environments often accept business casual, and in some companies a polished casual
+            look is acceptable for technical interviews. Marketing sits in the middle: creative but still
+            professional. If you are unsure, business casual is usually the safest default.
+          </p>
+          <p>
+            The purpose of an interview outfit generator is to turn this strategy into quick action.
+            Instead of reading dozens of conflicting posts, you enter your gender preference, industry,
+            formality target, and season, then receive a practical outfit recommendation with a short
+            explanation. If you want deeper guidance, continue with the <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">complete interview outfit guide</Link> or the <Link href="/blog/tech-interview-outfit" className="font-semibold text-cyan underline-offset-4 hover:underline">tech interview outfit guide</Link>.
+          </p>
+        </div>
       </section>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-        <h2 className="text-2xl font-semibold text-ink">Related Guides</h2>
-        <div className="mt-5 grid gap-4 md:grid-cols-2">
+      <section className="surface rounded-[32px] p-6 md:p-8 lg:p-10">
+        <h2 className="text-2xl font-semibold tracking-[-0.03em] text-ink md:text-3xl">Related Guides</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
           {relatedGuides.map((guide) => (
             <Link
               key={guide.href}
               href={guide.href}
-              className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300"
+              className="soft-card rounded-[24px] p-5 transition hover:-translate-y-0.5 hover:border-slate-300"
             >
-              <h3 className="text-lg font-semibold text-ink">{guide.title}</h3>
-              <p className="mt-2 text-slate-700">{guide.description}</p>
+              <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">{guide.title}</h3>
+              <p className="mt-2 text-[15px] leading-7 text-slate-700">{guide.description}</p>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-        <h2 className="text-2xl font-semibold text-ink">FAQ</h2>
-        {faqItems.map((item) => (
-          <div key={item.question}>
-            <h3 className="text-lg font-semibold text-slate-800">{item.question}</h3>
-            <p className="mt-1 text-slate-700">{item.answer}</p>
-          </div>
-        ))}
+      <section className="surface rounded-[32px] p-6 md:p-8 lg:p-10">
+        <h2 className="text-2xl font-semibold tracking-[-0.03em] text-ink md:text-3xl">FAQ</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {faqItems.map((item) => (
+            <div key={item.question} className="rounded-[22px] bg-white/72 p-5">
+              <h3 className="text-lg font-semibold tracking-[-0.02em] text-slate-800">{item.question}</h3>
+              <p className="mt-2 text-[15px] leading-7 text-slate-700">{item.answer}</p>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );
