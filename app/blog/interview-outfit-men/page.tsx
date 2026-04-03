@@ -54,9 +54,18 @@ const faqItems = [
   }
 ];
 
+const relatedPostMap = [
+  "what-to-wear-to-an-interview",
+  "business-casual-interview-outfit",
+  "finance-interview-outfit",
+  "best-shoes-for-an-interview"
+];
+
 export default function BlogMenPage() {
   const post = blogPosts.find((entry) => entry.slug === "interview-outfit-men")!;
-  const relatedPosts = blogPosts.filter((entry) => entry.slug !== post.slug).slice(0, 3);
+  const relatedPosts = relatedPostMap
+    .map((slug) => blogPosts.find((entry) => entry.slug === slug))
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 
   const articleSchema = buildBlogPostingSchema({
     title: "Best Interview Outfits for Men",
@@ -107,6 +116,13 @@ export default function BlogMenPage() {
         than brand. A neat haircut and clean shoes can elevate an average suit more than expensive
         accessories.
       </p>
+      <section className="rounded-2xl border border-cyan/20 bg-cyan/5 p-5 shadow-sm">
+        <p className="text-sm font-semibold uppercase tracking-wide text-cyan">Best next step</p>
+        <h2 className="mt-2 text-xl font-semibold text-ink">Generate a lower-risk interview outfit</h2>
+        <p className="mt-2 text-slate-700">
+          Use the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">interview outfit generator</Link> to compare formal, business casual, startup, and seasonal outfit choices before interview day.
+        </p>
+      </section>
       <p className="text-slate-700">
         Business casual is the default option when you are uncertain. A button-down shirt, chinos or
         wool trousers, and loafers or derby shoes works for a wide range of roles. Add a blazer if the
@@ -150,15 +166,19 @@ export default function BlogMenPage() {
 
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="text-2xl font-semibold text-ink">Related reads</h2>
-        <ul className="mt-4 space-y-2 text-slate-700">
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
           {relatedPosts.map((relatedPost) => (
-            <li key={relatedPost.slug}>
-              <Link href={`/blog/${relatedPost.slug}`} className="text-cyan underline-offset-4 hover:underline">
-                {relatedPost.title}
-              </Link>
-            </li>
+            <Link
+              key={relatedPost.slug}
+              href={`/blog/${relatedPost.slug}`}
+              className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300"
+            >
+              <p className="text-sm font-semibold uppercase tracking-wide text-cyan">{relatedPost.category}</p>
+              <h3 className="mt-2 text-lg font-semibold text-ink">{relatedPost.title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{relatedPost.description}</p>
+            </Link>
           ))}
-        </ul>
+        </div>
         <Link href="/interview-outfit-generator" className="mt-5 inline-block rounded-xl bg-coral px-5 py-3 text-sm font-semibold text-white hover:opacity-90">
           Try the Interview Outfit Generator
         </Link>

@@ -54,9 +54,18 @@ const faqItems = [
   }
 ];
 
+const relatedPostMap = [
+  "startup-interview-outfit",
+  "can-you-wear-jeans-to-an-interview",
+  "business-casual-interview-outfit",
+  "what-to-wear-to-an-interview"
+];
+
 export default function BlogTechPage() {
   const post = blogPosts.find((entry) => entry.slug === "tech-interview-outfit")!;
-  const relatedPosts = blogPosts.filter((entry) => entry.slug !== post.slug).slice(0, 3);
+  const relatedPosts = relatedPostMap
+    .map((slug) => blogPosts.find((entry) => entry.slug === slug))
+    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 
   const articleSchema = buildBlogPostingSchema({
     title: "What to Wear to a Tech Interview",
@@ -106,6 +115,13 @@ export default function BlogTechPage() {
         client-facing roles, add a blazer. This keeps your appearance credible across technical and
         leadership discussions.
       </p>
+      <section className="rounded-2xl border border-cyan/20 bg-cyan/5 p-5 shadow-sm">
+        <p className="text-sm font-semibold uppercase tracking-wide text-cyan">Best next step</p>
+        <h2 className="mt-2 text-xl font-semibold text-ink">Check your tech interview outfit against company context</h2>
+        <p className="mt-2 text-slate-700">
+          Use the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">interview outfit generator</Link> to compare startup, product, and more formal office expectations before you choose jeans, knitwear, or a blazer.
+        </p>
+      </section>
       <p className="text-slate-700">
         Product, data, and design roles can include a bit more personal style, but keep the same
         quality standard: neat fit, neutral palette, and consistent formality. Avoid outfits that are
@@ -151,15 +167,19 @@ export default function BlogTechPage() {
 
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="text-2xl font-semibold text-ink">Related reads</h2>
-        <ul className="mt-4 space-y-2 text-slate-700">
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
           {relatedPosts.map((relatedPost) => (
-            <li key={relatedPost.slug}>
-              <Link href={`/blog/${relatedPost.slug}`} className="text-cyan underline-offset-4 hover:underline">
-                {relatedPost.title}
-              </Link>
-            </li>
+            <Link
+              key={relatedPost.slug}
+              href={`/blog/${relatedPost.slug}`}
+              className="rounded-2xl border border-slate-200 p-5 transition hover:border-slate-300"
+            >
+              <p className="text-sm font-semibold uppercase tracking-wide text-cyan">{relatedPost.category}</p>
+              <h3 className="mt-2 text-lg font-semibold text-ink">{relatedPost.title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{relatedPost.description}</p>
+            </Link>
           ))}
-        </ul>
+        </div>
         <Link href="/interview-outfit-generator" className="mt-5 inline-block rounded-xl bg-coral px-5 py-3 text-sm font-semibold text-white hover:opacity-90">
           Try the Interview Outfit Generator
         </Link>
