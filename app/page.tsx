@@ -103,7 +103,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/interview-outfit-generator"
+                href="/interview-outfit-generator#generator"
                 className="rounded-2xl bg-ink px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(15,23,42,0.16)] transition hover:-translate-y-0.5 hover:bg-slate-800"
               >
                 Try the Generator
@@ -239,7 +239,7 @@ export default function HomePage() {
             interview outfits.
           </p>
           <Link
-            href="/interview-outfit-generator"
+            href="/interview-outfit-generator#generator"
             className="mt-5 inline-block rounded-2xl bg-coral px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(251,113,133,0.22)] transition hover:-translate-y-0.5 hover:opacity-90"
           >
             Open the Interview Outfit Generator
