@@ -118,26 +118,53 @@ export default function BlogIndexPage() {
       <section className="surface rounded-[32px] p-8 md:p-10 lg:p-12">
         <h2 className="text-2xl font-semibold tracking-[-0.03em] text-ink md:text-3xl">Start here</h2>
         <p className="mt-3 max-w-4xl text-[15px] leading-7 text-slate-700">
-          If you are new to interview prep, begin with the <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">complete guide on what to wear to a job interview</Link>. Then use the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">interview outfit generator</Link> to turn those rules into a practical outfit recommendation.
+          This blog is organized to help candidates answer three practical questions fast: how formal the
+          company expects you to dress, which outfit formula fits your role, and what small details can
+          quietly hurt an otherwise strong first impression. If you are starting from zero, begin with the{" "}
+          <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">
+            complete guide on what to wear to a job interview
+          </Link>
+          , then compare your situation with the audience, industry, and dress-code guides below.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <Link href="/blog/what-to-wear-to-an-interview" className="soft-card rounded-[24px] p-5 transition hover:-translate-y-0.5 hover:border-slate-300">
             <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">What to Wear to a Job Interview</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">Best first read for searchers comparing interview dress code basics.</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Best first read if you are unsure how formal an interview outfit should be.</p>
           </Link>
           <Link href="/blog/tech-interview-outfit" className="soft-card rounded-[24px] p-5 transition hover:-translate-y-0.5 hover:border-slate-300">
             <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">Tech Interview Outfit</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">Targets software engineer, startup, and product interview intent.</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Clear guidance for software, startup, product, and other modern office interviews.</p>
           </Link>
           <Link href="/blog/business-casual-interview-outfit" className="soft-card rounded-[24px] p-5 transition hover:-translate-y-0.5 hover:border-slate-300">
             <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">Business Casual Interview Outfit</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">Strong high-intent guide for the most common interview dress code.</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">A practical guide to the dress code most candidates need to get right.</p>
           </Link>
           <Link href="/interview-outfit-generator" className="soft-card rounded-[24px] p-5 transition hover:-translate-y-0.5 hover:border-slate-300">
             <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">Try the Generator</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">Turn the advice into a quick outfit recommendation.</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Turn the advice into a faster recommendation based on industry and season.</p>
           </Link>
         </div>
+      </section>
+
+      <section className="grid gap-5 md:grid-cols-3">
+        <article className="soft-card rounded-[28px] p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+          <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">Use the complete guide first</h2>
+          <p className="mt-3 text-[15px] leading-7 text-slate-700">
+            If you only read one page, start with <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">what to wear to a job interview</Link>. It gives you the baseline rules for dress code, shoes, color, and comfort.
+          </p>
+        </article>
+        <article className="soft-card rounded-[28px] p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+          <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">Then narrow by role or audience</h2>
+          <p className="mt-3 text-[15px] leading-7 text-slate-700">
+            Next, compare your situation with the <Link href="/blog/interview-outfit-women" className="font-semibold text-cyan underline-offset-4 hover:underline">women&apos;s guide</Link>, <Link href="/blog/interview-outfit-men" className="font-semibold text-cyan underline-offset-4 hover:underline">men&apos;s guide</Link>, or <Link href="/blog/tech-interview-outfit" className="font-semibold text-cyan underline-offset-4 hover:underline">tech interview guide</Link>.
+          </p>
+        </article>
+        <article className="soft-card rounded-[28px] p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+          <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">Use the tool for a final check</h2>
+          <p className="mt-3 text-[15px] leading-7 text-slate-700">
+            Once you know the likely dress code, use the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">interview outfit generator</Link> to sanity-check your final outfit before interview day.
+          </p>
+        </article>
       </section>
 
       <div className="space-y-10">

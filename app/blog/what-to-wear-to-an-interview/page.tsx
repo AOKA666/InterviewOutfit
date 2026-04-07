@@ -104,6 +104,18 @@ export default function BlogCompleteGuidePage() {
         />
       </div>
       <h2 className="text-2xl font-semibold text-slate-800">How to Choose an Interview Outfit</h2>
+      <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 className="text-xl font-semibold text-ink">Quick answer</h2>
+        <p className="mt-3 text-slate-700">
+          If you are unsure what to wear to a job interview, start with polished business casual: a clean shirt or blouse, tailored trousers, simple shoes, and an optional blazer. Then move one level more formal for finance, consulting, law, and other conservative industries.
+        </p>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li>• Safest default: polished business casual</li>
+          <li>• Move more formal for conservative companies</li>
+          <li>• Keep colors neutral and fit sharp</li>
+          <li>• Prioritize comfort for long interview days</li>
+        </ul>
+      </section>
       <p className="text-slate-700">
         The fastest way to decide what to wear to an interview is to answer four questions. What
         industry is this role in? What is the expected dress code? What is the weather? What outfit
@@ -169,6 +181,28 @@ export default function BlogCompleteGuidePage() {
         and easy to wear confidently. Professional consistency beats fashion complexity every time. If
         you want more specific help, compare the <Link href="/blog/interview-outfit-women" className="font-semibold text-cyan underline-offset-4 hover:underline">women&apos;s interview outfit guide</Link>, the <Link href="/blog/interview-outfit-men" className="font-semibold text-cyan underline-offset-4 hover:underline">men&apos;s interview outfit guide</Link>, and the <Link href="/blog/tech-interview-outfit" className="font-semibold text-cyan underline-offset-4 hover:underline">tech interview outfit guide</Link>, then test your final choice in the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">generator</Link>.
       </p>
+
+      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-2xl font-semibold text-ink">Interview outfit checklist</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-800">Before you leave</h3>
+            <ul className="mt-2 space-y-2 text-slate-700">
+              <li>• Check for wrinkles, lint, and missing buttons</li>
+              <li>• Walk in your shoes for at least 10 minutes</li>
+              <li>• Make sure your bag and outerwear match the outfit level</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-800">Avoid these mistakes</h3>
+            <ul className="mt-2 space-y-2 text-slate-700">
+              <li>• Overdressing far beyond company culture</li>
+              <li>• Wearing untested shoes on a long interview day</li>
+              <li>• Letting bold patterns distract from your answers</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="text-2xl font-semibold text-ink">Related reads</h2>

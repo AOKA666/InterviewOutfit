@@ -102,6 +102,18 @@ export default function BlogMenPage() {
         />
       </div>
       <h2 className="text-2xl font-semibold text-slate-800">How to Choose an Interview Outfit</h2>
+      <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 className="text-xl font-semibold text-ink">Quick answer for men</h2>
+        <p className="mt-3 text-slate-700">
+          For most men, the lowest-risk interview outfit is a clean shirt, tailored trousers or chinos, and polished shoes. If the company is conservative, add a blazer or suit. If the company is clearly casual, keep the outfit simpler but still sharp.
+        </p>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li>• Business formal for finance, law, and consulting</li>
+          <li>• Business casual for most office interviews</li>
+          <li>• Dark jeans only for clearly relaxed environments</li>
+          <li>• Fit and shoe condition matter more than brand</li>
+        </ul>
+      </section>
       <p className="text-slate-700">
         A strong interview outfit for men should match company expectations while staying simple and
         comfortable. Start with industry and role level. Corporate finance, legal, and consulting
@@ -163,6 +175,24 @@ export default function BlogMenPage() {
         clothing is balanced and professional, interviewers can focus on your experience and problem
         solving. If you want a second opinion before interview day, run your details through the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">outfit generator</Link> and compare with our <Link href="/blog/what-to-wear-to-an-interview" className="font-semibold text-cyan underline-offset-4 hover:underline">complete interview outfit guide</Link>.
       </p>
+
+      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-2xl font-semibold text-ink">Reliable outfit formulas</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-800">Formal</h3>
+            <p className="mt-2 text-slate-700">Dark suit, light shirt, conservative tie, and clean leather shoes with sharp but comfortable fit.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-800">Business casual</h3>
+            <p className="mt-2 text-slate-700">Button-down or refined knit, chinos or wool trousers, and loafers or derby shoes in neutral colors.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-800">Startup</h3>
+            <p className="mt-2 text-slate-700">Dark jeans or chinos, clean top layer, simple shoes, and zero sloppy details like worn sneakers or wrinkled fabric.</p>
+          </div>
+        </div>
+      </section>
 
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="text-2xl font-semibold text-ink">Related reads</h2>

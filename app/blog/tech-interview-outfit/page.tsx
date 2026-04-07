@@ -102,6 +102,18 @@ export default function BlogTechPage() {
         />
       </div>
       <h2 className="text-2xl font-semibold text-slate-800">How to Choose an Interview Outfit</h2>
+      <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 className="text-xl font-semibold text-ink">Quick answer for tech interviews</h2>
+        <p className="mt-3 text-slate-700">
+          For most tech interviews, polished business casual wins: clean trousers or dark jeans, a structured top, and shoes that look deliberate rather than lazy. Only go more casual if the company clearly signals it.
+        </p>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li>• Enterprise / fintech: lean more formal</li>
+          <li>• Startup / product teams: polished casual can work</li>
+          <li>• Senior or client-facing roles: add a blazer</li>
+          <li>• Remote rounds: test the outfit on camera first</li>
+        </ul>
+      </section>
       <p className="text-slate-700">
         Tech interview outfit decisions are often confusing because company cultures vary widely. A
         fintech enterprise and an early-stage startup can have completely different norms. Instead of
@@ -164,6 +176,24 @@ export default function BlogTechPage() {
         sharp, the palette controlled, and the comfort high. That balance supports confidence during
         system design, coding, and behavioral rounds. You can compare this page with our <Link href="/blog/interview-outfit-men" className="font-semibold text-cyan underline-offset-4 hover:underline">men&apos;s interview outfit guide</Link> or <Link href="/blog/interview-outfit-women" className="font-semibold text-cyan underline-offset-4 hover:underline">women&apos;s interview outfit guide</Link>, then run your final choice through the <Link href="/interview-outfit-generator" className="font-semibold text-cyan underline-offset-4 hover:underline">generator</Link>.
       </p>
+
+      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-2xl font-semibold text-ink">Tech interview outfit by company type</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-800">Startup</h3>
+            <p className="mt-2 text-slate-700">Dark jeans or chinos, a clean knit or button-down, and simple shoes. Casual is fine, sloppy is not.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-800">Mid-size product company</h3>
+            <p className="mt-2 text-slate-700">Business casual is the safest bet. Aim for one step more polished than the team&apos;s everyday look.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-800">Fintech or enterprise</h3>
+            <p className="mt-2 text-slate-700">Lean more structured: chinos or wool trousers, collared shirt or refined top, and polished shoes with optional blazer.</p>
+          </div>
+        </div>
+      </section>
 
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="text-2xl font-semibold text-ink">Related reads</h2>
